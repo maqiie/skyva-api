@@ -1,13 +1,7 @@
 
 class Auth::RegistrationsController < DeviseTokenAuth::RegistrationsController
   
-  # def create
-  #   super do |user|
-  #     if user.id == 1
-  #       user.update(admin: true)
-  #     end
-  #   end
-  # end
+
 
   def create
     super do |user|

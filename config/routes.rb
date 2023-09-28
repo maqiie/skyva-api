@@ -36,6 +36,14 @@ Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: 'auth', controllers: {
     registrations: 'auth/registrations'
   }
+  # Custom route for creating a new product
+  get 'products/new', to: 'products#create', as: 'new_product'
+  # post 'products', to: 'products#create', as: 'create_product'
+  post 'create_product', to: 'products#create', as: 'create_product'
+
+
+
+  # Other routes 
 
   resources :posts
 end

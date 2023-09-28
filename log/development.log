@@ -373,3 +373,395 @@ Read more about how to migrate at: https://guides.rubyonrails.org/active_record_
   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3422183495574815895)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from block (3 levels) in <class:Railtie> at /home/markpaul/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actionpack-7.0.7/lib/action_controller/railtie.rb:80)
+Started GET "/categories/1/posts" for 127.0.0.1 at 2023-09-28 15:44:31 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/categories/1/posts"):
+  
+Started GET "/categories/1/posts" for 127.0.0.1 at 2023-09-28 15:44:32 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/categories/1/posts"):
+  
+Started GET "/product/new" for 127.0.0.1 at 2023-09-28 15:44:51 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/product/new"):
+  
+Started GET "/product/new" for 127.0.0.1 at 2023-09-28 15:45:14 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/product/new"):
+  
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from block (3 levels) in <class:Railtie> at /home/markpaul/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/actionpack-7.0.7/lib/action_controller/railtie.rb:80)
+Started GET "/product/new" for 127.0.0.1 at 2023-09-28 15:45:25 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/product/new"):
+  
+Started GET "/product" for 127.0.0.1 at 2023-09-28 15:47:59 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/product"):
+  
+Started GET "/products" for 127.0.0.1 at 2023-09-28 15:48:12 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/products"):
+  
+Started GET "/create_product" for 127.0.0.1 at 2023-09-28 15:48:41 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/create_product"):
+  
+Started POST "/create_product" for 127.0.0.1 at 2023-09-28 15:49:52 +0300
+  
+ActionController::RoutingError (No route matches [POST] "/create_product"):
+  
+Started POST "/create_product" for 127.0.0.1 at 2023-09-28 15:50:08 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "color"=>"Blue", "category_id"=>1}
+Completed 400 Bad Request in 3ms (ActiveRecord: 0.0ms | Allocations: 2129)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: product):
+  
+app/controllers/products_controller.rb:19:in `product_params'
+app/controllers/products_controller.rb:5:in `create'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/create_product" for 127.0.0.1 at 2023-09-28 15:50:17 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by ProductsController#create as */*
+  Parameters: {"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "color"=>"Blue", "category_id"=>1}
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.0ms | Allocations: 2131)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: product):
+  
+app/controllers/products_controller.rb:19:in `product_params'
+app/controllers/products_controller.rb:5:in `create'
+Started POST "/create_product" for 127.0.0.1 at 2023-09-28 15:52:56 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "color"=>"Blue", "category_id"=>1}
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.0ms | Allocations: 1605)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: product):
+  
+app/controllers/products_controller.rb:18:in `product_params'
+app/controllers/products_controller.rb:5:in `create'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/create_product" for 127.0.0.1 at 2023-09-28 15:53:03 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by ProductsController#create as */*
+  Parameters: {"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "color"=>"Blue", "category_id"=>1}
+Completed 400 Bad Request in 3ms (ActiveRecord: 0.0ms | Allocations: 2131)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: product):
+  
+app/controllers/products_controller.rb:18:in `product_params'
+app/controllers/products_controller.rb:5:in `create'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/create_product" for 127.0.0.1 at 2023-09-28 15:53:54 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "color"=>"Blue", "category_id"=>1}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:7:in `create'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/products_controller.rb:7:in `create'
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 7.3ms | Allocations: 30510)
+
+
+  
+ActionView::MissingTemplate (Missing template products/new, application/new with {:locale=>[:en], :formats=>[:html, :text, :js, :css, :ics, :csv, :vcf, :vtt, :png, :jpeg, :gif, :bmp, :tiff, :svg, :mpeg, :mp3, :ogg, :m4a, :webm, :mp4, :otf, :ttf, :woff, :woff2, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip, :gzip], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby]}.
+
+Searched in:
+  * "/home/markpaul/projects/skyva-api/app/views"
+  * "/home/markpaul/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/devise_token_auth-1.2.2/app/views"
+  * "/home/markpaul/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/devise-4.9.2/app/views"
+
+Did you mean?  devise/confirmations/new
+               devise/registrations/new
+               devise/sessions/new
+               devise/unlocks/new
+               devise/passwords/new
+               devise/registrations/edit):
+  
+app/controllers/products_controller.rb:10:in `create'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/create_product" for 127.0.0.1 at 2023-09-28 15:55:00 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "color"=>"Blue", "category_id"=>1}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:7:in `create'
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/products_controller.rb:7:in `create'
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 7.3ms | Allocations: 30496)
+
+
+  
+ActionView::MissingTemplate (Missing template products/index, application/index with {:locale=>[:en], :formats=>[:html, :text, :js, :css, :ics, :csv, :vcf, :vtt, :png, :jpeg, :gif, :bmp, :tiff, :svg, :mpeg, :mp3, :ogg, :m4a, :webm, :mp4, :otf, :ttf, :woff, :woff2, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip, :gzip], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby]}.
+
+Searched in:
+  * "/home/markpaul/projects/skyva-api/app/views"
+  * "/home/markpaul/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/devise_token_auth-1.2.2/app/views"
+  * "/home/markpaul/.rbenv/versions/2.7.6/lib/ruby/gems/2.7.0/gems/devise-4.9.2/app/views"
+
+Did you mean?  layouts/mailer
+               layouts/application
+               devise/confirmations/new
+               devise/registrations/new
+               devise_token_auth/omniauth_external_window
+               devise/sessions/new):
+  
+app/controllers/products_controller.rb:13:in `create'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/create_product" for 127.0.0.1 at 2023-09-28 15:56:11 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "color"=>"Blue", "category_id"=>1}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:7:in `create'
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/products_controller.rb:7:in `create'
+Completed 422 Unprocessable Entity in 55ms (Views: 0.2ms | ActiveRecord: 5.6ms | Allocations: 38855)
+
+
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Clothing"], ["description", "Ut porro autem rem."], ["created_at", "2023-09-28 13:19:00.548681"], ["updated_at", "2023-09-28 13:19:00.548681"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Baby"], ["description", "Quae expedita delectus architecto."], ["created_at", "2023-09-28 13:19:00.553383"], ["updated_at", "2023-09-28 13:19:00.553383"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Movies"], ["description", "Quis quos impedit itaque."], ["created_at", "2023-09-28 13:19:00.556464"], ["updated_at", "2023-09-28 13:19:00.556464"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Home"], ["description", "At sapiente autem est."], ["created_at", "2023-09-28 13:19:00.559598"], ["updated_at", "2023-09-28 13:19:00.559598"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Grocery"], ["description", "Aperiam et nisi rerum."], ["created_at", "2023-09-28 13:19:00.562562"], ["updated_at", "2023-09-28 13:19:00.562562"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Clothes"], ["description", "Clothing category"], ["created_at", "2023-09-28 13:19:00.565438"], ["updated_at", "2023-09-28 13:19:00.565438"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Shoes"], ["description", "Footwear category"], ["created_at", "2023-09-28 13:19:00.568329"], ["updated_at", "2023-09-28 13:19:00.568329"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.1ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Jewelry"], ["description", "Jewelry category"], ["created_at", "2023-09-28 13:19:00.571154"], ["updated_at", "2023-09-28 13:19:00.571154"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+Started POST "/create_product" for 127.0.0.1 at 2023-09-28 16:19:56 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "color"=>"Blue", "category_id"=>1}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:7:in `create'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:7:in `create'
+  [1m[36mProduct Create (0.8ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["category_id", 1], ["created_at", "2023-09-28 13:19:56.383571"], ["updated_at", "2023-09-28 13:19:56.383571"]]
+  ↳ app/controllers/products_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (8.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:7:in `create'
+Completed 201 Created in 34ms (Views: 0.6ms | ActiveRecord: 13.7ms | Allocations: 11506)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2023-09-28 16:22:54 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "product": {
+    "name": "New Product",
+    "description": "A description of the new product",
+    "price": 29.99,
+    "size": "Medium",
+    "brand":"LV"
+    "color": "Blue",
+    "category_id": 1
+  }
+}
+Processing by ProductsController#create as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 135)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/products_controller.rb:19:in `product_params'
+app/controllers/products_controller.rb:5:in `create'
+Started POST "/create_product" for 127.0.0.1 at 2023-09-28 16:23:01 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "brand"=>"LV", "color"=>"Blue", "category_id"=>1}}
+[31mUnpermitted parameter: :brand. Context: { controller: ProductsController, action: create, request: #<ActionDispatch::Request:0x00007f83cc011cb8>, params: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "brand"=>"LV", "color"=>"Blue", "category_id"=>1}, "controller"=>"products", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:7:in `create'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:7:in `create'
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["category_id", 1], ["created_at", "2023-09-28 13:23:01.273960"], ["updated_at", "2023-09-28 13:23:01.273960"]]
+  ↳ app/controllers/products_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (8.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:7:in `create'
+Completed 201 Created in 14ms (Views: 0.5ms | ActiveRecord: 9.0ms | Allocations: 2952)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2023-09-28 16:24:36 +0300
+  
+SyntaxError (/home/markpaul/projects/skyva-api/app/controllers/products_controller.rb:19: syntax error, unexpected ':', expecting ')'
+...:size,:brand, :stock_quantity :color, :category_id)
+...                              ^
+/home/markpaul/projects/skyva-api/app/controllers/products_controller.rb:19: syntax error, unexpected ')', expecting '.' or &. or :: or '['
+..._quantity :color, :category_id)
+...                              ^
+):
+  
+app/controllers/products_controller.rb:19: syntax error, unexpected ':', expecting ')'
+app/controllers/products_controller.rb:19: syntax error, unexpected ')', expecting '.' or &. or :: or '['
+app/controllers/products_controller.rb:19: syntax error, unexpected ':', expecting ')'
+app/controllers/products_controller.rb:19: syntax error, unexpected ')', expecting '.' or &. or :: or '['
+Started POST "/create_product" for 127.0.0.1 at 2023-09-28 16:24:45 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "brand"=>"LV", "color"=>"Blue", "category_id"=>1}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:7:in `create'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:7:in `create'
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["category_id", 1], ["created_at", "2023-09-28 13:24:45.811032"], ["updated_at", "2023-09-28 13:24:45.811032"]]
+  ↳ app/controllers/products_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:7:in `create'
+Completed 201 Created in 28ms (Views: 0.4ms | ActiveRecord: 14.8ms | Allocations: 9068)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2023-09-28 16:25:20 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>1}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:7:in `create'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:7:in `create'
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 1], ["created_at", "2023-09-28 13:25:20.973240"], ["updated_at", "2023-09-28 13:25:20.973240"]]
+  ↳ app/controllers/products_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:7:in `create'
+Completed 201 Created in 14ms (Views: 0.4ms | ActiveRecord: 9.4ms | Allocations: 2895)
+
+
+Started POST "/auth/sign_in" for 127.0.0.1 at 2023-09-28 16:26:05 +0300
+Processing by DeviseTokenAuth::SessionsController#create as */*
+  Parameters: {"email"=>"markpaulmuthaura@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 AND "users"."provider" = $2 LIMIT $3[0m  [["email", "markpaulmuthaura@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 6ms (Views: 0.2ms | ActiveRecord: 1.5ms | Allocations: 2983)
+
+
+Started POST "/auth" for 127.0.0.1 at 2023-09-28 16:26:46 +0300
+Processing by Auth::RegistrationsController#create as */*
+  Parameters: {"email"=>"markpaulmuthuara2@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:7:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "markpaulmuthuara2@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+  ↳ app/controllers/auth/registrations_controller.rb:7:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["uid", "markpaulmuthuara2@gmail.com"], ["encrypted_password", "[FILTERED]"], ["email", "markpaulmuthuara2@gmail.com"], ["created_at", "2023-09-28 13:26:47.232574"], ["updated_at", "2023-09-28 13:26:47.232574"]]
+  ↳ app/controllers/auth/registrations_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (8.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/auth/registrations_controller.rb:7:in `create'
+  [1m[36mUser Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ app/controllers/auth/registrations_controller.rb:9:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:10:in `block in create'
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "role" = $2 WHERE "users"."id" = $3[0m  [["updated_at", "2023-09-28 13:26:47.245066"], ["role", 1], ["id", 1]]
+  ↳ app/controllers/auth/registrations_controller.rb:10:in `block in create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/auth/registrations_controller.rb:10:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:7:in `create'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "[FILTERED]"], ["updated_at", "2023-09-28 13:26:47.309963"], ["id", 1]]
+  ↳ app/controllers/auth/registrations_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/auth/registrations_controller.rb:7:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/auth/registrations_controller.rb:7:in `create'
+Completed 200 OK in 332ms (Views: 0.2ms | ActiveRecord: 15.9ms | Allocations: 28934)
+
+

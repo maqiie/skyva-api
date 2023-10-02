@@ -44,6 +44,7 @@ Rails.application.routes.draw do
 
 
   # Other routes 
+  resources :carts, only: [:show, :update, :destroy, :create]
+  post '/add_to_cart', to: 'carts#add_to_cart'
 
-  resources :posts
 end

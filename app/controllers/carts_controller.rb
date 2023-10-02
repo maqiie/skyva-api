@@ -20,6 +20,7 @@ class CartsController < ApplicationController
       render json: { errors: cart.errors.full_messages }, status: :unprocessable_entity
     end
   end
+
   def show
     cart_items = current_user.cart.cart_items
     render json: { cart_items: cart_items }

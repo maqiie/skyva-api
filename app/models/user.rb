@@ -8,5 +8,7 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
   enum role: [:user, :admin] # Define roles as enum
   has_many :addresses
+  has_one :cart, dependent: :destroy
+
 
 end

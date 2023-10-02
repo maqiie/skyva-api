@@ -9,6 +9,21 @@ Rails.application.configure do
   config.cache_classes = false
 
   # Do not eager load code on boot.
+  # config/environments/development.rb (for development)
+# config/environments/development.rb (for development)
+config.action_mailer.default_url_options = { host: 'localhost', port: 3001 }
+
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+  address: 'smtp.gmail.com',
+  port: 587,
+  domain: 'localhost', # Replace with 'localhost'
+  user_name: 'maqiipaul@gmail.com', # Your Gmail address
+  password: '@Markpaul5', # Your Gmail password
+  authentication: 'plain',
+  enable_starttls_auto: true
+}
+
 
 
   config.active_storage.service = :local

@@ -1,12 +1,25 @@
 class CartsController < ApplicationController
+  before_action :authenticate_user! # Ensure the user is authenticated
+
+
   # POST /add_to_cart
   def add_to_cart
     product_id = params[:product_id]
     quantity = params[:quantity]
 
-    render json: { message: 'Product added to cart' }, status: :created
-  end
+    # Find or create the user's cart
+    cart = current_user.cart || current_user.build_cart
 
+    # Add the product to the cart
+    cart.add_product(product_id, quantity)
+
+    # Save the cart
+    if cart.save
+      render json: { message: 'Product added to cart' }, status: :created
+    else
+      render json: { errors: cart.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
   def show
     cart_items = current_user.cart.cart_items
     render json: { cart_items: cart_items }

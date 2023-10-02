@@ -1,22 +1,20 @@
+# app/controllers/addresses_controller.rb
 class AddressesController < ApplicationController
-  def index
-  end
-
-  def show
-  end
-
-  def new
-  end
-
   def create
+    @address = current_user.addresses.build(address_params)
+
+    if @address.save
+      # Handle successful address creation
+    else
+      # Handle address creation errors
+    end
   end
 
-  def edit
-  end
+  # Other address-related actions...
+  
+  private
 
-  def update
-  end
-
-  def destroy
+  def address_params
+    params.require(:address).permit(:street, :city, :state, :zip_code)
   end
 end

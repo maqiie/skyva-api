@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
   include DeviseTokenAuth::Concerns::User
   enum role: [:user, :admin] # Define roles as enum
+  has_many :addresses
+
 end

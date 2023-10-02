@@ -1,8 +1,6 @@
 class CartsController < ApplicationController
   before_action :authenticate_user! # Ensure the user is authenticated
 
-
-  # POST /add_to_cart
   def add_to_cart
     product_id = params[:product_id]
     quantity = params[:quantity]
@@ -15,12 +13,31 @@ class CartsController < ApplicationController
 
     # Save the cart
     if cart.save
-      render json: { message: 'Product added to cart' }, status: :created
+      render json: { message: 'Product added to cart successfully', cart: cart }, status: :created
     else
       render json: { errors: cart.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
+  # POST /add_to_cart
+  # def add_to_cart
+  #   product_id = params[:product_id]
+  #   quantity = params[:quantity]
+
+  #   # Find or create the user's cart
+  #   cart = current_user.cart || current_user.build_cart
+
+  #   # Add the product to the cart
+  #   cart.add_product(product_id, quantity)
+
+  #   # Save the cart
+  #   if cart.save
+  #     render json: { message: 'Product added to cart' }, status: :created
+  #   else
+  #     render json: { errors: cart.errors.full_messages }, status: :unprocessable_entity
+  #   end
+  # end
+  
   def show
     cart_items = current_user.cart.cart_items
     render json: { cart_items: cart_items }
@@ -51,6 +68,12 @@ class CartsController < ApplicationController
   end
   def calculate_cart_total
     cart_items.sum(&:subtotal)
+  end
+
+  private
+
+  def cart_params
+    params.permit(:product_id, :quantity)
   end
       
 end

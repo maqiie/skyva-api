@@ -2,16 +2,17 @@
 require 'faker'
 
 # Create random categories
-5.times do
-  Category.create(
-    name: Faker::Commerce.department(max: 1, fixed_amount: true),
-    description: Faker::Lorem.sentence
-  )
-end
 
 # Create specific categories
 Category.create(name: 'Clothes', description: 'Clothing category')
 Category.create(name: 'Shoes', description: 'Footwear category')
 Category.create(name: 'Jewelry', description: 'Jewelry category')
+Category.create(name: 'Men', description: 'Men\'s clothing')
+Category.create(name: 'Women', description: 'Women\'s clothing')
+
+# Create random brands
+5.times do
+  Brand.create(name: Faker::Company.name, description: Faker::Lorem.sentence)
+end
 
 puts 'Seed data has been created.'

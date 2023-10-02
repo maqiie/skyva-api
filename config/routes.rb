@@ -47,4 +47,10 @@ Rails.application.routes.draw do
   resources :carts, only: [:show, :update, :destroy, :create]
   post '/add_to_cart', to: 'carts#add_to_cart'
 
+
+  resources :categories do
+    # /categories/:id/products, where :id is the ID of the category you want to retrieve products for.
+    get 'products', on: :member, to: 'categories#products_by_category'
+  end
+
 end

@@ -52,5 +52,10 @@ Rails.application.routes.draw do
     # /categories/:id/products, where :id is the ID of the category you want to retrieve products for.
     get 'products', on: :member, to: 'categories#products_by_category'
   end
+  # config/routes.rb
+
+# Define a route for viewing the cart and items inside the cart
+get '/cart', to: 'carts#show', as: 'cart'
+
 
 end

@@ -25,6 +25,8 @@ class CartsController < ApplicationController
     cart_total = calculate_cart_total(cart_items)
     render json: { cart_items: cart_items, cart_total: cart_total }
   end
+
+  
   
   # Modify calculate_cart_total to accept cart items as a parameter
   def calculate_cart_total(cart_items)

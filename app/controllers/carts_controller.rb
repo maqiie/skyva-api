@@ -2,21 +2,17 @@ class CartsController < ApplicationController
   before_action :authenticate_user! # Ensure the user is authenticated
 
   def add_to_cart
-    # product_id = params[:product_id]
-    # quantity = params[:quantity]
+   
+  end
+  def get_cart
+    # Replace this with your actual logic to retrieve cart contents
+    @cart_contents = Cart.find(params[:id])  # Example logic, adjust as needed
 
-    # # Find or create the user's cart
-    # cart = current_user.cart || current_user.build_cart
-
-    # # Add the product to the cart
-    # cart.add_product(product_id, quantity)
-
-    # # Save the cart
-    # if cart.save
-    #   render json: { message: 'Product added to cart successfully', cart: cart }, status: :created
-    # else
-    #   render json: { errors: cart.errors.full_messages }, status: :unprocessable_entity
-    # end
+    respond_to do |format|
+      format.json { render json: @cart_contents }
+      # You can also render an HTML view if needed
+      # format.html { render :show }
+    end
   end
 
   
@@ -56,6 +52,23 @@ class CartsController < ApplicationController
   def clear_cart
     current_user.cart.cart_items.destroy_all
     render json: { message: 'Cart cleared' }
+  end
+
+  def remove_item(product_id)
+    # Find the order item for the given product
+    order_item = order_items.find_by(product_id: product_id)
+
+    if order_item
+      # If the item is in the cart, destroy it
+      order_item.destroy
+      save
+    end
+  end
+
+
+  def clear_cart
+    # Destroy all order items associated with the cart
+    order_items.destroy_all
   end
 
 

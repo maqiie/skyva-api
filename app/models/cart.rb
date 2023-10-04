@@ -4,29 +4,56 @@ class Cart < ApplicationRecord
   has_many :order_items, dependent: :destroy
 
  
-  def add_product(product_id, quantity)
+  # def add_product(product_id, quantity)
+  #   # Find the product
+  #   product = Product.find(product_id)
+  
+  #   # Check if the user has a cart, and if not, create one
+  #   unless cart
+  #     self.cart = Cart.new
+  #   end
+  
+  #   # Check if the product is already in the cart
+  #   order_item = order_items.find_by(product_id: product_id)
+  
+  #   if order_item
+  #     # If the product is already in the cart, update its quantity
+  #     order_item.update(quantity: order_item.quantity + quantity.to_i)
+  #   else
+  #     # If the product is not in the cart, create a new order_item
+  #     order_item = order_items.build(product: product, quantity: quantity)
+  #   end
+  
+  #   # Save the changes to the cart and the order item
+  #   save
+  #   order_item.save
+  # end
+  def add_product(product_id, quantity, current_user)
     # Find the product
     product = Product.find(product_id)
   
-    # Check if the user has a cart, and if not, create one
-    unless cart
-      self.cart = Cart.new
+    # Check if the current user has a cart, and if not, create one
+    if current_user.cart.nil?
+      current_user.cart = Cart.new
     end
   
     # Check if the product is already in the cart
-    order_item = order_items.find_by(product_id: product_id)
+    order_item = current_user.cart.order_items.find_by(product_id: product_id)
   
     if order_item
       # If the product is already in the cart, update its quantity
       order_item.update(quantity: order_item.quantity + quantity.to_i)
     else
       # If the product is not in the cart, create a new order_item
-      order_item = order_items.build(product: product, quantity: quantity)
+      order_item = current_user.cart.order_items.build(product: product, quantity: quantity)
     end
   
     # Save the changes to the cart and the order item
-    save
+    current_user.save
     order_item.save
   end
+  
+  
+  
   
 end

@@ -1,38 +1,7 @@
 class CartsController < ApplicationController
   before_action :authenticate_user! # Ensure the user is authenticated
 
-  # def add_to_cart
-  #   # Retrieve the product_id, quantity, and current_user from the params hash
-  #   product_id = params[:product_id]
-  #   quantity = params[:quantity]
-  #   current_user = current_user # If you have Devise set up, it should provide the current_user
-  #   Rails.logger.info("Current User: #{current_user.inspect}")
-
-  #   # Find the product
-  #   product = Product.find(product_id)
   
-  #   # Check if the current user has a cart, and if not, create one
-  #   if current_user.cart.nil?
-  #     current_user.cart = Cart.new
-  #   end
-  
-  #   # Check if the product is already in the cart
-  #   order_item = current_user.cart.order_items.find_by(product_id: product_id)
-  
-  #   if order_item
-  #     # If the product is already in the cart, update its quantity
-  #     order_item.update(quantity: order_item.quantity + quantity.to_i)
-  #   else
-  #     # If the product is not in the cart, create a new order_item
-  #     order_item = current_user.cart.order_items.build(product: product, quantity: quantity)
-  #   end
-  
-  #   # Save the changes to the cart and the order item
-  #   current_user.save
-  #   order_item.save
-
-  #   # You may want to provide a response here, such as a redirect or JSON response
-  # end
   def add_to_cart
     # Retrieve the product_id, quantity, and current_user from the params hash
     product_id = params[:product_id]
@@ -101,7 +70,7 @@ class CartsController < ApplicationController
     cart_items.sum(&:subtotal)
   end
   
-  def update
+  def add_quantity
     cart_item = current_user.cart.cart_items.find(params[:cart_item_id])
     new_quantity = params[:new_quantity]
   

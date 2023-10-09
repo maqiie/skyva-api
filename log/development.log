@@ -3646,3 +3646,163 @@ getter and setter.
 Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
  (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
   [1m[36mCart Load (0.7ms)[0m  [1m[34mSELECT "carts".* FROM "carts"[0m
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2023-10-09 10:22:31 +0300
+Processing by CartsController#add_to_cart as */*
+  Parameters: {"product_id"=>1, "quantity"=>2, "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthuara5@gmail.com"], ["LIMIT", 1]]
+Current User: #<User id: 3, provider: "email", uid: "markpaulmuthuara5@gmail.com", allow_password_change: [FILTERED], name: nil, nickname: nil, image: nil, email: "markpaulmuthuara5@gmail.com", created_at: "2023-10-05 08:14:51.875669000 +0000", updated_at: "2023-10-05 08:14:51.979412000 +0000", role: nil>
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:43:in `add_to_cart'
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:53:in `add_to_cart'
+  [1m[36mOrderItem Load (0.3ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."cart_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["cart_id", 1], ["product_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:59:in `add_to_cart'
+Product added to cart: #<OrderItem id: nil, order_id: nil, product_id: 1, quantity: 2, price: nil, created_at: nil, updated_at: nil, cart_id: 1>
+Error saving cart or order item.
+No template found for CartsController#add_to_cart, rendering head :no_content
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 204 No Content in 142ms (ActiveRecord: 7.4ms | Allocations: 29650)
+
+
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/carts/1/add_quantity" for 127.0.0.1 at 2023-10-09 10:35:00 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [POST] "/carts/1/add_quantity"):
+  
+Started POST "/carts/1/add_quantity" for 127.0.0.1 at 2023-10-09 10:36:09 +0300
+  
+ActionController::RoutingError (No route matches [POST] "/carts/1/add_quantity"):
+  
+Started PATCH "/carts/1/add_quantity" for 127.0.0.1 at 2023-10-09 10:38:04 +0300
+  
+ActionController::RoutingError (No route matches [PATCH] "/carts/1/add_quantity"):
+  
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started PATCH "/carts/1/add_quantity" for 127.0.0.1 at 2023-10-09 10:38:32 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [PATCH] "/carts/1/add_quantity"):
+  
+Started PATCH "/carts/1/add_quantity/1" for 127.0.0.1 at 2023-10-09 10:45:04 +0300
+  
+ArgumentError (can't use member outside resource(s) scope):
+  
+config/routes.rb:17:in `block (3 levels) in <top (required)>'
+config/routes.rb:12:in `block (2 levels) in <top (required)>'
+config/routes.rb:11:in `block in <top (required)>'
+config/routes.rb:3:in `<top (required)>'
+Started PATCH "/carts/1/add_quantity/1" for 127.0.0.1 at 2023-10-09 10:45:47 +0300
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by CartsController#add_quantity as */*
+  Parameters: {"quantity"=>1, "id"=>"1", "product_id"=>"1"}
+Filter chain halted as :authenticate_user! rendered or redirected
+Completed 401 Unauthorized in 1174ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 726279)
+
+
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started PATCH "/carts/1/add_quantity/1" for 127.0.0.1 at 2023-10-09 10:52:56 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by CartsController#add_quantity as */*
+  Parameters: {"quantity"=>1, "id"=>"1", "product_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthuara5@gmail.com"], ["LIMIT", 1]]
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:74:in `add_quantity'
+Completed 500 Internal Server Error in 147ms (ActiveRecord: 7.8ms | Allocations: 47738)
+
+
+  
+NoMethodError (undefined method `cart_items' for #<Cart:0x00007f560c7e2660>):
+  
+app/controllers/carts_controller.rb:74:in `add_quantity'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started PATCH "/carts/1/add_quantity/1" for 127.0.0.1 at 2023-10-09 10:57:06 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by CartsController#add_quantity as */*
+  Parameters: {"quantity"=>1, "id"=>"1", "product_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthuara5@gmail.com"], ["LIMIT", 1]]
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:74:in `add_quantity'
+Completed 500 Internal Server Error in 108ms (ActiveRecord: 6.7ms | Allocations: 49089)
+
+
+  
+NameError (Rails couldn't find a valid model for CartItem association. Please provide the :class_name option on the association declaration. If :class_name is already provided, make sure it's an ActiveRecord::Base subclass.):
+  
+app/controllers/carts_controller.rb:74:in `add_quantity'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started PATCH "/carts/1/add_quantity/1" for 127.0.0.1 at 2023-10-09 11:17:58 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by CartsController#add_quantity as */*
+  Parameters: {"quantity"=>1, "id"=>"1", "product_id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthuara5@gmail.com"], ["LIMIT", 1]]
+  [1m[36mCart Load (0.6ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:74:in `add_quantity'
+Completed 500 Internal Server Error in 107ms (ActiveRecord: 8.5ms | Allocations: 49037)
+
+
+  
+NameError (Rails couldn't find a valid model for CartItem association. Please provide the :class_name option on the association declaration. If :class_name is already provided, make sure it's an ActiveRecord::Base subclass.):
+  
+app/controllers/carts_controller.rb:74:in `add_quantity'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started PATCH "/carts/1/add_quantity/1" for 127.0.0.1 at 2023-10-09 11:20:36 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by CartsController#add_quantity as */*
+  Parameters: {"quantity"=>1, "id"=>"1", "product_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthuara5@gmail.com"], ["LIMIT", 1]]
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:74:in `add_quantity'
+Completed 500 Internal Server Error in 106ms (ActiveRecord: 5.7ms | Allocations: 49028)
+
+
+  
+NameError (Rails couldn't find a valid model for CartItem association. Please provide the :class_name option on the association declaration. If :class_name is already provided, make sure it's an ActiveRecord::Base subclass.):
+  
+app/controllers/carts_controller.rb:74:in `add_quantity'

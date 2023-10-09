@@ -1,9 +1,81 @@
 class CartsController < ApplicationController
   before_action :authenticate_user! # Ensure the user is authenticated
 
+  # def add_to_cart
+  #   # Retrieve the product_id, quantity, and current_user from the params hash
+  #   product_id = params[:product_id]
+  #   quantity = params[:quantity]
+  #   current_user = current_user # If you have Devise set up, it should provide the current_user
+  #   Rails.logger.info("Current User: #{current_user.inspect}")
+
+  #   # Find the product
+  #   product = Product.find(product_id)
+  
+  #   # Check if the current user has a cart, and if not, create one
+  #   if current_user.cart.nil?
+  #     current_user.cart = Cart.new
+  #   end
+  
+  #   # Check if the product is already in the cart
+  #   order_item = current_user.cart.order_items.find_by(product_id: product_id)
+  
+  #   if order_item
+  #     # If the product is already in the cart, update its quantity
+  #     order_item.update(quantity: order_item.quantity + quantity.to_i)
+  #   else
+  #     # If the product is not in the cart, create a new order_item
+  #     order_item = current_user.cart.order_items.build(product: product, quantity: quantity)
+  #   end
+  
+  #   # Save the changes to the cart and the order item
+  #   current_user.save
+  #   order_item.save
+
+  #   # You may want to provide a response here, such as a redirect or JSON response
+  # end
   def add_to_cart
-   
+    # Retrieve the product_id, quantity, and current_user from the params hash
+    product_id = params[:product_id]
+    quantity = params[:quantity]
+    Rails.logger.info("Current User: #{current_user.inspect}")
+  
+    # Find the product
+    product = Product.find_by(id: product_id)
+  
+    if product.nil?
+      # Handle the case where the product doesn't exist
+      flash[:error] = "Product not found."
+      redirect_to root_path # You can customize this redirect as needed
+      return
+    end
+  
+    # Check if the current user has a cart, and if not, create one
+    if current_user.cart.nil?
+      current_user.cart = Cart.new
+    end
+  
+    # Check if the product is already in the cart
+    order_item = current_user.cart.order_items.find_by(product_id: product_id)
+  
+    if order_item
+      # If the product is already in the cart, update its quantity
+      order_item.update(quantity: order_item.quantity + quantity.to_i)
+    else
+      # If the product is not in the cart, create a new order_item
+      order_item = current_user.cart.order_items.build(product: product, quantity: quantity)
+    end
+  
+    # Save the changes to the cart and the order item
+    if current_user.save && order_item.save
+      flash[:success] = "Product added to cart successfully." # You can customize this message
+      # redirect_to cart_path # You can customize this redirect as needed
+    else
+      # Handle the case where there was an error saving
+      flash[:error] = "There was an error adding the product to the cart."
+      # redirect_to root_path # You can customize this redirect as needed
+    end
   end
+  
   def get_cart
     # Replace this with your actual logic to retrieve cart contents
     @cart_contents = Cart.find(params[:id])  # Example logic, adjust as needed

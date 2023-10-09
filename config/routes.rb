@@ -97,7 +97,11 @@ Rails.application.routes.draw do
   end
 
   # Authentication routes using Devise Token Auth
+ 
+
   mount_devise_token_auth_for 'User', at: 'auth', controllers: {
     registrations: 'auth/registrations'
   }
+  # devise_for :users
+  
 end

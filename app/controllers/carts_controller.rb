@@ -2,48 +2,96 @@ class CartsController < ApplicationController
   before_action :authenticate_user! # Ensure the user is authenticated
 
   
+  # def add_to_cart
+  #   # Retrieve the product_id, quantity, and current_user from the params hash
+  #   product_id = params[:product_id]
+  #   quantity = params[:quantity]
+  #   Rails.logger.info("Current User: #{current_user.inspect}")
+  
+  #   # Find the product
+  #   product = Product.find_by(id: product_id)
+  
+  #   if product.nil?
+  #     # Handle the case where the product doesn't exist
+  #     flash[:error] = "Product not found."
+  #     # redirect_to root_path # You can customize this redirect as needed
+  #     return
+  #   end
+  
+  #   # Check if the current user has a cart, and if not, create one
+  #   if current_user.cart.nil?
+  #     current_user.cart = Cart.new
+  #   end
+  
+  #   # Check if the product is already in the cart
+  #   order_item = current_user.cart.order_items.find_by(product_id: product_id)
+  
+  #   if order_item
+  #     # If the product is already in the cart, update its quantity
+  #     order_item.update(quantity: order_item.quantity + quantity.to_i)
+  #   else
+  #     # If the product is not in the cart, create a new order_item
+  #     order_item = current_user.cart.order_items.build(product: product, quantity: quantity)
+  #   end
+  
+  #   # Save the changes to the cart and the order item
+  #   if current_user.save && order_item.save
+  #     flash[:success] = "Product added to cart successfully." # You can customize this message
+  #     # redirect_to cart_path # You can customize this redirect as needed
+  #   else
+  #     # Handle the case where there was an error saving
+  #     flash[:error] = "There was an error adding the product to the cart."
+  #     # redirect_to root_path # You can customize this redirect as needed
+  #   end
+  # end
   def add_to_cart
     # Retrieve the product_id, quantity, and current_user from the params hash
     product_id = params[:product_id]
     quantity = params[:quantity]
-    Rails.logger.info("Current User: #{current_user.inspect}")
   
     # Find the product
     product = Product.find_by(id: product_id)
   
     if product.nil?
       # Handle the case where the product doesn't exist
-      flash[:error] = "Product not found."
-      redirect_to root_path # You can customize this redirect as needed
+      render json: { error: "Product not found." }, status: :not_found
       return
     end
   
     # Check if the current user has a cart, and if not, create one
-    if current_user.cart.nil?
-      current_user.cart = Cart.new
+    if current_user.current_cart.nil?
+      current_user.create_current_cart
     end
   
+    # Find or create an order for the current user
+    order = current_user.current_cart.orders.find_or_create_by(status: 'open')
+  
     # Check if the product is already in the cart
-    order_item = current_user.cart.order_items.find_by(product_id: product_id)
+    order_item = order.order_items.find_by(product_id: product_id)
   
     if order_item
       # If the product is already in the cart, update its quantity
       order_item.update(quantity: order_item.quantity + quantity.to_i)
     else
       # If the product is not in the cart, create a new order_item
-      order_item = current_user.cart.order_items.build(product: product, quantity: quantity)
+      order_item = order.order_items.build(product: product, quantity: quantity)
     end
   
     # Save the changes to the cart and the order item
     if current_user.save && order_item.save
-      flash[:success] = "Product added to cart successfully." # You can customize this message
-      # redirect_to cart_path # You can customize this redirect as needed
+      render json: { message: "Product added to cart successfully", cart_id: current_user.current_cart.id }
     else
       # Handle the case where there was an error saving
-      flash[:error] = "There was an error adding the product to the cart."
-      # redirect_to root_path # You can customize this redirect as needed
+      errors = current_user.errors.full_messages + order_item.errors.full_messages
+      render json: { error: "There was an error adding the product to the cart", errors: errors }, status: :unprocessable_entity
     end
   end
+  
+  
+  
+  
+  
+  
   
   def get_cart
     # Replace this with your actual logic to retrieve cart contents
@@ -70,16 +118,70 @@ class CartsController < ApplicationController
     cart_items.sum(&:subtotal)
   end
   
-  def add_quantity
-    cart_item = current_user.cart.cart_items.find(params[:cart_item_id])
-    new_quantity = params[:new_quantity]
+  # def add_quantity
+  #   cart_item = current_user.cart.cart_items.find(params[:cart_item_id])
+  #   new_quantity = params[:new_quantity]
   
-    if cart_item.update(quantity: new_quantity)
-      render json: { message: 'Cart item quantity updated' }
-    else
-      render json: { errors: cart_item.errors.full_messages }, status: :unprocessable_entity
-    end
+  #   if cart_item.update(quantity: new_quantity)
+  #     render json: { message: 'Cart item quantity updated' }
+  #   else
+  #     render json: { errors: cart_item.errors.full_messages }, status: :unprocessable_entity
+  #   end
+  # end
+  # def add_quantity
+  #   cart = current_user.cart
+  
+  #   if cart.nil?
+  #     render json: { errors: 'User does not have a cart' }, status: :not_found
+  #     return
+  #   end
+  
+  #   order_item = cart.order_items.find(params[:order_item_id]) # Change to order_item_id
+  #   new_quantity = params[:new_quantity].to_i # Ensure new_quantity is an integer
+  
+  #   if order_item.nil?
+  #     render json: { errors: 'Order item not found in the cart' }, status: :not_found
+  #     return
+  #   end
+  
+  #   # Calculate the updated quantity
+  #   updated_quantity = order_item.quantity + new_quantity
+  
+  #   if updated_quantity <= 0
+  #     # Handle the case where you want to remove the item if quantity becomes zero
+  #     order_item.destroy
+  #     render json: { message: 'Cart item removed' }
+  #   elsif order_item.update(quantity: updated_quantity)
+  #     render json: { message: 'Cart item quantity updated' }
+  #   else
+  #     render json: { errors: order_item.errors.full_messages }, status: :unprocessable_entity
+  #   end
+  # end
+  def add_quantity
+  cart = current_user.cart
+
+  if cart.nil?
+    render json: { errors: 'User does not have a cart' }, status: :not_found
+    return
   end
+
+  order_item = cart.order_items.find_by(id: params[:order_item_id]) # Find by ID
+
+  if order_item.nil?
+    render json: { errors: 'Order item not found in the cart' }, status: :not_found
+    return
+  end
+
+  new_quantity = params[:quantity].to_i # Ensure new_quantity is an integer
+
+  # Calculate the updated quantity
+  updated_quantity = order_item.quantity + new_quantity
+
+  # Handle quantity update or removal logic here...
+end
+
+  
+  
   
   def destroy
     cart_item = current_user.cart.cart_items.find(params[:cart_item_id])

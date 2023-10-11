@@ -44,6 +44,48 @@ class CartsController < ApplicationController
   #     # redirect_to root_path # You can customize this redirect as needed
   #   end
   # end
+  # def add_to_cart
+  #   # Retrieve the product_id, quantity, and current_user from the params hash
+  #   product_id = params[:product_id]
+  #   quantity = params[:quantity]
+  
+  #   # Find the product
+  #   product = Product.find_by(id: product_id)
+  
+  #   if product.nil?
+  #     # Handle the case where the product doesn't exist
+  #     render json: { error: "Product not found." }, status: :not_found
+  #     return
+  #   end
+  
+  #   # Check if the current user has a cart, and if not, create one
+  #   if current_user.current_cart.nil?
+  #     current_user.create_current_cart
+  #   end
+  
+  #   # Find or create an order for the current user
+  #   order = current_user.current_cart.orders.find_or_create_by(status: 'open')
+  
+  #   # Check if the product is already in the cart
+  #   order_item = order.order_items.find_by(product_id: product_id)
+  
+  #   if order_item
+  #     # If the product is already in the cart, update its quantity
+  #     order_item.update(quantity: order_item.quantity + quantity.to_i)
+  #   else
+  #     # If the product is not in the cart, create a new order_item
+  #     order_item = order.order_items.build(product: product, quantity: quantity)
+  #   end
+  
+  #   # Save the changes to the cart and the order item
+  #   if current_user.save && order_item.save
+  #     render json: { message: "Product added to cart successfully", cart_id: current_user.current_cart.id }
+  #   else
+  #     # Handle the case where there was an error saving
+  #     errors = current_user.errors.full_messages + order_item.errors.full_messages
+  #     render json: { error: "There was an error adding the product to the cart", errors: errors }, status: :unprocessable_entity
+  #   end
+  # end
   def add_to_cart
     # Retrieve the product_id, quantity, and current_user from the params hash
     product_id = params[:product_id]
@@ -77,14 +119,7 @@ class CartsController < ApplicationController
       order_item = order.order_items.build(product: product, quantity: quantity)
     end
   
-    # Save the changes to the cart and the order item
-    if current_user.save && order_item.save
-      render json: { message: "Product added to cart successfully", cart_id: current_user.current_cart.id }
-    else
-      # Handle the case where there was an error saving
-      errors = current_user.errors.full_messages + order_item.errors.full_messages
-      render json: { error: "There was an error adding the product to the cart", errors: errors }, status: :unprocessable_entity
-    end
+    render json: { message: "Product added to cart successfully", cart_id: current_user.current_cart.id }
   end
   
   

@@ -8,10 +8,13 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
   enum role: [:user, :admin] # Define roles as enum
   has_many :addresses
-  has_one :current_cart, class_name: 'Cart', dependent: :destroy
+  # has_one :current_cart, class_name: 'Cart', dependent: :destroy
+  has_one :current_cart, class_name: 'Cart', foreign_key: 'user_id'
+
+  
   has_many :orders
   has_one :cart
-  # belongs_to :current_cart, class_name: "Cart", optional: true
+
 
 
 

@@ -168,16 +168,49 @@ class CartsController < ApplicationController
   end
   
  
+  # def add_quantity
+  #   cart = current_user.cart
+  #   order_item_id = params[:id]
+  
+  #   if cart.nil?
+  #     render json: { errors: 'User does not have a cart' }, status: :not_found
+  #     return
+  #   end
+  
+  #   order_item = cart.order_items.find_by(id: params[:order_item_id])
+  
+  #   if order_item.nil?
+  #     render json: { errors: 'Order item not found in the cart' }, status: :not_found
+  #     return
+  #   end
+  
+  #   new_quantity = params[:quantity].to_i
+  
+  #   # Calculate the updated quantity
+  #   updated_quantity = order_item.quantity + new_quantity
+  
+  #   if updated_quantity < 0
+  #     # If the updated quantity is negative, you might want to handle removal logic here
+  #     order_item.destroy
+  #   else
+  #     # Update the order item's quantity
+  #     order_item.update(quantity: updated_quantity)
+  #   end
+  
+  #   render json: { message: 'Quantity updated successfully' }, status: :ok
+  # end
+  
   def add_quantity
     cart = current_user.cart
-  
+    order_item_id = params[:product_id] # Change the parameter name
+    
     if cart.nil?
       render json: { errors: 'User does not have a cart' }, status: :not_found
       return
     end
   
-    order_item = cart.order_items.find_by(id: params[:order_item_id])
-  
+    order_item = cart.order_items.find_by(id: order_item_id) # Use the correct parameter name
+    
     if order_item.nil?
       render json: { errors: 'Order item not found in the cart' }, status: :not_found
       return
@@ -198,7 +231,6 @@ class CartsController < ApplicationController
   
     render json: { message: 'Quantity updated successfully' }, status: :ok
   end
-  
   
   
   

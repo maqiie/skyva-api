@@ -15,6 +15,7 @@
 class Cart < ApplicationRecord
   belongs_to :user
   has_many :orders # Add this association
+  has_many :cart_items, class_name: 'OrderItem', foreign_key: 'cart_id'
 
   has_many :order_items
 

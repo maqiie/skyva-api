@@ -14,7 +14,10 @@ class User < ActiveRecord::Base
   
   has_many :orders
   has_one :cart
-
+  
+  def grant_admin_privileges
+    update(admin: true) unless admin?
+  end
 
 
 

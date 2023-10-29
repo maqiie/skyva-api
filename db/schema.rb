@@ -97,7 +97,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_10_093453) do
     t.text "payment_details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "cart_id", default: 1, null: false
+    t.bigint "cart_id", null: false
     t.index ["cart_id"], name: "index_orders_on_cart_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end

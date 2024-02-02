@@ -11007,3 +11007,2170 @@ Completed 422 Unprocessable Entity in 2617ms (Views: 0.9ms | ActiveRecord: 13.0m
 
 
 >>>>>>> ceb27d7649c9a9e5a144205fa3b3a48970921d3f
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/auth/sign_in" for 127.0.0.1 at 2024-02-02 13:43:15 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by DeviseTokenAuth::SessionsController#create as */*
+  Parameters: {"email"=>"markpaulmuthaura@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 AND "users"."provider" = $2 LIMIT $3[0m  [["email", "markpaulmuthaura@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[37mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Update (8.6ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "[FILTERED]"], ["updated_at", "2024-02-02 10:43:15.984870"], ["id", 1]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 362ms (Views: 0.2ms | ActiveRecord: 17.9ms | Allocations: 33373)
+
+
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 13:43:35 +0300
+  
+AbstractController::ActionNotFound (The action 'add_to_cart' could not be found for CartsController):
+  
+actionpack (7.0.7) lib/abstract_controller/base.rb:146:in `process'
+actionview (7.0.7) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.7) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.7) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.8) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.8) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.8) lib/rack/etag.rb:27:in `call'
+rack (2.2.8) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.8) lib/rack/head.rb:12:in `call'
+activerecord (7.0.7) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.7) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.7) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.8) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+rack-cors (2.0.1) lib/rack/cors.rb:102:in `call'
+railties (7.0.7) lib/rails/engine.rb:530:in `call'
+puma (5.6.7) lib/puma/configuration.rb:252:in `call'
+puma (5.6.7) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.7) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.7) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.7) lib/puma/server.rb:443:in `process_client'
+puma (5.6.7) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/auth/sign_in" for 127.0.0.1 at 2024-02-02 13:57:55 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by DeviseTokenAuth::SessionsController#create as */*
+  Parameters: {"email"=>"markpaulmuthaura@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 AND "users"."provider" = $2 LIMIT $3[0m  [["email", "markpaulmuthaura@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[37mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "[FILTERED]"], ["updated_at", "2024-02-02 10:57:56.431930"], ["id", 1]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 346ms (Views: 0.3ms | ActiveRecord: 7.3ms | Allocations: 33437)
+
+
+Started POST "/auth" for 127.0.0.1 at 2024-02-02 13:57:59 +0300
+Processing by Auth::RegistrationsController#create as */*
+  Parameters: {"user"=>{"name"=>"markpaul mwenda", "email"=>"markpaulmuthaura@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:37:in `create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "markpaulmuthaura@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+  ↳ app/controllers/auth/registrations_controller.rb:37:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/auth/registrations_controller.rb:37:in `create'
+Completed 422 Unprocessable Entity in 1450ms (Views: 0.4ms | ActiveRecord: 10.7ms | Allocations: 725178)
+
+
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 13:58:54 +0300
+  
+AbstractController::ActionNotFound (The action 'add_to_cart' could not be found for CartsController):
+  
+actionpack (7.0.7) lib/abstract_controller/base.rb:146:in `process'
+actionview (7.0.7) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.7) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.7) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.8) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.8) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.8) lib/rack/etag.rb:27:in `call'
+rack (2.2.8) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.8) lib/rack/head.rb:12:in `call'
+activerecord (7.0.7) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.7) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.7) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.8) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+rack-cors (2.0.1) lib/rack/cors.rb:102:in `call'
+railties (7.0.7) lib/rails/engine.rb:530:in `call'
+puma (5.6.7) lib/puma/configuration.rb:252:in `call'
+puma (5.6.7) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.7) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.7) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.7) lib/puma/server.rb:443:in `process_client'
+puma (5.6.7) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/auth/sign_in" for 127.0.0.1 at 2024-02-02 13:59:54 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by DeviseTokenAuth::SessionsController#create as */*
+  Parameters: {"email"=>"markpaulmuthaura@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 AND "users"."provider" = $2 LIMIT $3[0m  [["email", "markpaulmuthaura@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[37mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "[FILTERED]"], ["updated_at", "2024-02-02 10:59:55.129871"], ["id", 1]]
+  [1m[36mTRANSACTION (8.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 346ms (Views: 0.3ms | ActiveRecord: 14.5ms | Allocations: 33551)
+
+
+Started POST "/auth" for 127.0.0.1 at 2024-02-02 14:00:11 +0300
+Processing by Auth::RegistrationsController#create as */*
+  Parameters: {"user"=>{"name"=>"user1", "email"=>"user1@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:37:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "user1@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+  ↳ app/controllers/auth/registrations_controller.rb:37:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/auth/registrations_controller.rb:37:in `create'
+Completed 422 Unprocessable Entity in 1337ms (Views: 0.2ms | ActiveRecord: 2.0ms | Allocations: 724413)
+
+
+Started POST "/auth" for 127.0.0.1 at 2024-02-02 14:00:33 +0300
+Processing by Auth::RegistrationsController#create as */*
+  Parameters: {"user"=>{"name"=>"user1", "email"=>"user1@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:37:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "user1@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+  ↳ app/controllers/auth/registrations_controller.rb:37:in `create'
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "user1@gmail.com"], ["encrypted_password", "[FILTERED]"], ["name", "user1"], ["email", "user1@gmail.com"], ["created_at", "2024-02-02 11:00:33.775984"], ["updated_at", "2024-02-02 11:00:33.775984"]]
+  ↳ app/controllers/auth/registrations_controller.rb:37:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/auth/registrations_controller.rb:37:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:40:in `block in create'
+  [1m[36mCart Create (0.9ms)[0m  [1m[32mINSERT INTO "carts" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 3], ["created_at", "2024-02-02 11:00:33.800808"], ["updated_at", "2024-02-02 11:00:33.800808"]]
+  ↳ app/controllers/auth/registrations_controller.rb:40:in `block in create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/auth/registrations_controller.rb:40:in `block in create'
+  [1m[36mUser Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ app/controllers/auth/registrations_controller.rb:45:in `block in create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:37:in `create'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "[FILTERED]"], ["updated_at", "2024-02-02 11:00:33.867708"], ["id", 3]]
+  ↳ app/controllers/auth/registrations_controller.rb:37:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/auth/registrations_controller.rb:37:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/auth/registrations_controller.rb:37:in `create'
+Completed 200 OK in 343ms (Views: 0.5ms | ActiveRecord: 10.1ms | Allocations: 29139)
+
+
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 14:01:02 +0300
+  
+AbstractController::ActionNotFound (The action 'add_to_cart' could not be found for CartsController):
+  
+actionpack (7.0.7) lib/abstract_controller/base.rb:146:in `process'
+actionview (7.0.7) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.7) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.7) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.8) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.8) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.8) lib/rack/etag.rb:27:in `call'
+rack (2.2.8) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.8) lib/rack/head.rb:12:in `call'
+activerecord (7.0.7) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.7) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.7) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.8) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+rack-cors (2.0.1) lib/rack/cors.rb:102:in `call'
+railties (7.0.7) lib/rails/engine.rb:530:in `call'
+puma (5.6.7) lib/puma/configuration.rb:252:in `call'
+puma (5.6.7) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.7) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.7) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.7) lib/puma/server.rb:443:in `process_client'
+puma (5.6.7) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+  [1m[36mProduct Load (8.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:01:52 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+Filter chain halted as :require_admin rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 236)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:02:02 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "user1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+Filter chain halted as :require_admin rendered or redirected
+Completed 401 Unauthorized in 94ms (Views: 0.2ms | ActiveRecord: 4.3ms | Allocations: 26215)
+
+
+Started POST "/auth/sign_in" for 127.0.0.1 at 2024-02-02 14:02:11 +0300
+Processing by DeviseTokenAuth::SessionsController#create as */*
+  Parameters: {"email"=>"markpaulmuthaura@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 AND "users"."provider" = $2 LIMIT $3[0m  [["email", "markpaulmuthaura@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[37mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "[FILTERED]"], ["updated_at", "2024-02-02 11:02:11.791570"], ["id", 1]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 295ms (Views: 0.2ms | ActiveRecord: 3.5ms | Allocations: 9479)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:02:27 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+Filter chain halted as :require_admin rendered or redirected
+Completed 401 Unauthorized in 64ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 960)
+
+
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:04:43 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+Filter chain halted as :require_admin rendered or redirected
+Completed 401 Unauthorized in 84ms (Views: 0.2ms | ActiveRecord: 4.1ms | Allocations: 25872)
+
+
+Started POST "/auth/sign_in" for 127.0.0.1 at 2024-02-02 14:33:29 +0300
+Processing by DeviseTokenAuth::SessionsController#create as */*
+  Parameters: {"email"=>"markpaulmuthaura@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 AND "users"."provider" = $2 LIMIT $3[0m  [["email", "markpaulmuthaura@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[37mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "[FILTERED]"], ["updated_at", "2024-02-02 11:33:30.218308"], ["id", 1]]
+  [1m[36mTRANSACTION (8.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 356ms (Views: 0.3ms | ActiveRecord: 16.9ms | Allocations: 17045)
+
+
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (9.8ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (29.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "skyva_api"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "skyva_api"[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+  [1m[35m (111.8ms)[0m  [1m[35mCREATE DATABASE "skyva_api" ENCODING = 'unicode'[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE DATABASE "skyva_api" ENCODING = 'unicode'[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+  [1m[35m (13.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (10.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3422183495574815895)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseTokenAuthCreateUsers (20230819204134)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "provider" character varying DEFAULT 'email' NOT NULL, "uid" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "allow_password_change" boolean DEFAULT FALSE, "remember_created_at" timestamp(6), "confirmation_token" character varying, "confirmed_at" timestamp(6), "confirmation_sent_at" timestamp(6), "unconfirmed_email" character varying, "name" character varying, "nickname" character varying, "image" character varying, "email" character varying, "tokens" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_uid_and_provider" ON "users" ("uid", "provider")[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230819204134"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddRoleToUsers (20230821020342)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "role" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230821020342"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePosts (20230821021958)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying, "content" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230821021958"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActiveStorageTables (20230821023831)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "service_name" character varying NOT NULL, "byte_size" bigint NOT NULL, "checksum" character varying, "created_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (8.6ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (8.6ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" bigserial primary key, "blob_id" bigint NOT NULL, "variation_digest" character varying NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230821023831"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProducts (20230928093423)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.4ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "name" character varying, "description" text, "price" decimal, "size" character varying, "color" character varying, "brand" character varying, "stock_quantity" integer, "category_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_fb915499a4"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(3422183495574815895)[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3422183495574815895)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCategories (20230928093441)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "name" character varying, "description" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230928093441"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOrders (20230928093450)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (15.1ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "user_id" bigint NOT NULL, "status" character varying, "total_amount" decimal, "shipping_address" text, "payment_details" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_f868b47f6a"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE INDEX "index_orders_on_user_id" ON "orders" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230928093450"]]
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOrderItems (20230928093507)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (15.5ms)[0m  [1m[35mCREATE TABLE "order_items" ("id" bigserial primary key, "order_id" bigint NOT NULL, "product_id" bigint NOT NULL, "quantity" integer, "price" decimal, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_e3cb28f071"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+, CONSTRAINT "fk_rails_f1a29ddd47"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3422183495574815895)[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3422183495574815895)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateProducts (20230928093423)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.7ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "name" character varying, "description" text, "price" decimal, "size" character varying, "color" character varying, "brand" character varying, "stock_quantity" integer, "category_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_fb915499a4"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+)[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE INDEX "index_products_on_category_id" ON "products" ("category_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230928093423"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOrderItems (20230928093507)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.7ms)[0m  [1m[35mCREATE TABLE "order_items" ("id" bigserial primary key, "order_id" bigint NOT NULL, "product_id" bigint NOT NULL, "quantity" integer, "price" decimal, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_e3cb28f071"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+, CONSTRAINT "fk_rails_f1a29ddd47"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE INDEX "index_order_items_on_order_id" ON "order_items" ("order_id")[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE INDEX "index_order_items_on_product_id" ON "order_items" ("product_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230928093507"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCarts (20230928093648)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "carts" ("id" bigserial primary key, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_ea59a35211"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE INDEX "index_carts_on_user_id" ON "carts" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230928093648"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAddresses (20230928093657)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.6ms)[0m  [1m[35mCREATE TABLE "addresses" ("id" bigserial primary key, "user_id" bigint NOT NULL, "address_type" character varying, "street" character varying, "city" character varying, "state" character varying, "postal_code" character varying, "country" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_48c9e0c5a2"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE INDEX "index_addresses_on_user_id" ON "addresses" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230928093657"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateReceipts (20230928094034)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "receipts" ("id" bigserial primary key, "order_id" bigint NOT NULL, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_de8c1572cc"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+, CONSTRAINT "fk_rails_b2d4d3fa14"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE INDEX "index_receipts_on_order_id" ON "receipts" ("order_id")[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE INDEX "index_receipts_on_user_id" ON "receipts" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230928094034"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBrands (20231002082120)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "brands" ("id" bigserial primary key, "name" character varying, "description" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20231002082120"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddCartReferenceToOrderItems (20231002130233)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "order_items" ADD "cart_id" bigint NOT NULL[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE INDEX "index_order_items_on_cart_id" ON "order_items" ("cart_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "order_items" ADD CONSTRAINT "fk_rails_59f7f23852"
+FOREIGN KEY ("cart_id")
+  REFERENCES "carts" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20231002130233"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddCartReferenceToOrders (20231010093453)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT "carts".* FROM "carts" ORDER BY "carts"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "orders" ADD "cart_id" bigint NOT NULL[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE INDEX "index_orders_on_cart_id" ON "orders" ("cart_id")[0m
+  [1m[35m (1.8ms)[0m  [1m[35mALTER TABLE "orders" ADD CONSTRAINT "fk_rails_5cdf0e0ad4"
+FOREIGN KEY ("cart_id")
+  REFERENCES "carts" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20231010093453"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddAdminToUsers (20240129171916)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "admin" boolean[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20240129171916"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-02-02 11:40:41.677088"], ["updated_at", "2024-02-02 11:40:41.677088"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3422183495574815895)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Clothes"], ["description", "Clothing category"], ["created_at", "2024-02-02 11:41:01.151538"], ["updated_at", "2024-02-02 11:41:01.151538"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Shoes"], ["description", "Footwear category"], ["created_at", "2024-02-02 11:41:01.155662"], ["updated_at", "2024-02-02 11:41:01.155662"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Jewelry"], ["description", "Jewelry category"], ["created_at", "2024-02-02 11:41:01.158686"], ["updated_at", "2024-02-02 11:41:01.158686"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Men"], ["description", "Men's clothing"], ["created_at", "2024-02-02 11:41:01.161365"], ["updated_at", "2024-02-02 11:41:01.161365"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Women"], ["description", "Women's clothing"], ["created_at", "2024-02-02 11:41:01.171467"], ["updated_at", "2024-02-02 11:41:01.171467"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBrand Create (0.5ms)[0m  [1m[32mINSERT INTO "brands" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Harber, O'Hara and Roob"], ["description", "Accusamus tenetur reiciendis sint."], ["created_at", "2024-02-02 11:41:02.113185"], ["updated_at", "2024-02-02 11:41:02.113185"]]
+  [1m[36mTRANSACTION (8.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBrand Create (0.5ms)[0m  [1m[32mINSERT INTO "brands" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Waters Group"], ["description", "Cum omnis quas maxime."], ["created_at", "2024-02-02 11:41:02.125070"], ["updated_at", "2024-02-02 11:41:02.125070"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBrand Create (0.3ms)[0m  [1m[32mINSERT INTO "brands" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Swaniawski and Sons"], ["description", "Nostrum voluptas eveniet ad."], ["created_at", "2024-02-02 11:41:02.128878"], ["updated_at", "2024-02-02 11:41:02.128878"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBrand Create (0.3ms)[0m  [1m[32mINSERT INTO "brands" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Emmerich LLC"], ["description", "Eum quos nihil autem."], ["created_at", "2024-02-02 11:41:02.132494"], ["updated_at", "2024-02-02 11:41:02.132494"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBrand Create (0.2ms)[0m  [1m[32mINSERT INTO "brands" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Shields Inc"], ["description", "Adipisci nihil sed facilis."], ["created_at", "2024-02-02 11:41:02.136094"], ["updated_at", "2024-02-02 11:41:02.136094"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/auth" for 127.0.0.1 at 2024-02-02 14:43:18 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by Auth::RegistrationsController#create as */*
+  Parameters: {"user"=>{"name"=>"markpaul mwenda", "email"=>"markpaulmuthaura@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:3:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "markpaulmuthaura@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+  ↳ app/controllers/auth/registrations_controller.rb:3:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "markpaulmuthaura@gmail.com"], ["encrypted_password", "[FILTERED]"], ["name", "markpaul mwenda"], ["email", "markpaulmuthaura@gmail.com"], ["created_at", "2024-02-02 11:43:20.457912"], ["updated_at", "2024-02-02 11:43:20.457912"]]
+  ↳ app/controllers/auth/registrations_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/auth/registrations_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:6:in `block in create'
+  [1m[36mCart Create (0.8ms)[0m  [1m[32mINSERT INTO "carts" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2024-02-02 11:43:20.479714"], ["updated_at", "2024-02-02 11:43:20.479714"]]
+  ↳ app/controllers/auth/registrations_controller.rb:6:in `block in create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/auth/registrations_controller.rb:6:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:3:in `create'
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "[FILTERED]"], ["updated_at", "2024-02-02 11:43:20.547357"], ["id", 1]]
+  ↳ app/controllers/auth/registrations_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/auth/registrations_controller.rb:3:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/auth/registrations_controller.rb:3:in `create'
+Completed 200 OK in 1496ms (Views: 0.2ms | ActiveRecord: 16.0ms | Allocations: 774976)
+
+
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/auth" for 127.0.0.1 at 2024-02-02 14:44:19 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by Auth::RegistrationsController#create as */*
+  Parameters: {"user"=>{"name"=>"markpaul mwenda", "email"=>"markpaulmuthaura2@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:3:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "markpaulmuthaura2@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+  ↳ app/controllers/auth/registrations_controller.rb:3:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["encrypted_password", "[FILTERED]"], ["name", "markpaul mwenda"], ["email", "markpaulmuthaura2@gmail.com"], ["created_at", "2024-02-02 11:44:20.909541"], ["updated_at", "2024-02-02 11:44:20.909541"]]
+  ↳ app/controllers/auth/registrations_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (8.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/auth/registrations_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:6:in `block in create'
+  [1m[36mCart Create (0.7ms)[0m  [1m[32mINSERT INTO "carts" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 2], ["created_at", "2024-02-02 11:44:20.940661"], ["updated_at", "2024-02-02 11:44:20.940661"]]
+  ↳ app/controllers/auth/registrations_controller.rb:6:in `block in create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/auth/registrations_controller.rb:6:in `block in create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:10:in `block in create'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "role" = $2, "admin" = $3 WHERE "users"."id" = $4[0m  [["updated_at", "2024-02-02 11:44:20.946106"], ["role", 1], ["admin", true], ["id", 2]]
+  ↳ app/controllers/auth/registrations_controller.rb:10:in `block in create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/auth/registrations_controller.rb:10:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:3:in `create'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "[FILTERED]"], ["updated_at", "2024-02-02 11:44:21.012525"], ["id", 2]]
+  ↳ app/controllers/auth/registrations_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/auth/registrations_controller.rb:3:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/auth/registrations_controller.rb:3:in `create'
+Completed 200 OK in 1508ms (Views: 0.4ms | ActiveRecord: 21.9ms | Allocations: 776721)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:45:10 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mProduct Create (0.7ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 2], ["created_at", "2024-02-02 11:45:10.430763"], ["updated_at", "2024-02-02 11:45:10.430763"]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 201 Created in 104ms (Views: 0.3ms | ActiveRecord: 7.5ms | Allocations: 27966)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:45:30 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 2], ["created_at", "2024-02-02 11:45:30.243301"], ["updated_at", "2024-02-02 11:45:30.243301"]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 201 Created in 21ms (Views: 0.4ms | ActiveRecord: 10.4ms | Allocations: 4688)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:45:30 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 2], ["created_at", "2024-02-02 11:45:30.486501"], ["updated_at", "2024-02-02 11:45:30.486501"]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 201 Created in 19ms (Views: 0.4ms | ActiveRecord: 10.0ms | Allocations: 4696)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:45:30 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mProduct Create (1.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 2], ["created_at", "2024-02-02 11:45:30.693678"], ["updated_at", "2024-02-02 11:45:30.693678"]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 201 Created in 22ms (Views: 0.4ms | ActiveRecord: 11.2ms | Allocations: 4682)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:45:30 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 2], ["created_at", "2024-02-02 11:45:30.885773"], ["updated_at", "2024-02-02 11:45:30.885773"]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 201 Created in 11ms (Views: 0.3ms | ActiveRecord: 2.5ms | Allocations: 4668)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:45:31 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 2], ["created_at", "2024-02-02 11:45:31.054874"], ["updated_at", "2024-02-02 11:45:31.054874"]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 201 Created in 18ms (Views: 0.4ms | ActiveRecord: 10.1ms | Allocations: 4662)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:45:31 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 2], ["created_at", "2024-02-02 11:45:31.274671"], ["updated_at", "2024-02-02 11:45:31.274671"]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (8.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 201 Created in 17ms (Views: 0.3ms | ActiveRecord: 9.8ms | Allocations: 4662)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:45:31 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mProduct Create (0.9ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 2], ["created_at", "2024-02-02 11:45:31.549321"], ["updated_at", "2024-02-02 11:45:31.549321"]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 201 Created in 14ms (Views: 0.4ms | ActiveRecord: 3.0ms | Allocations: 4658)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:45:31 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 2], ["created_at", "2024-02-02 11:45:31.728294"], ["updated_at", "2024-02-02 11:45:31.728294"]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 201 Created in 20ms (Views: 0.5ms | ActiveRecord: 10.1ms | Allocations: 4666)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:45:31 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 2], ["created_at", "2024-02-02 11:45:31.922493"], ["updated_at", "2024-02-02 11:45:31.922493"]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 201 Created in 19ms (Views: 0.4ms | ActiveRecord: 10.0ms | Allocations: 4664)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:45:32 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 2], ["created_at", "2024-02-02 11:45:32.207270"], ["updated_at", "2024-02-02 11:45:32.207270"]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 201 Created in 18ms (Views: 0.3ms | ActiveRecord: 9.9ms | Allocations: 4660)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:45:32 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 2], ["created_at", "2024-02-02 11:45:32.537512"], ["updated_at", "2024-02-02 11:45:32.537512"]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 201 Created in 19ms (Views: 0.8ms | ActiveRecord: 9.8ms | Allocations: 4664)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:45:32 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 2], ["created_at", "2024-02-02 11:45:32.805812"], ["updated_at", "2024-02-02 11:45:32.805812"]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 201 Created in 11ms (Views: 0.4ms | ActiveRecord: 2.2ms | Allocations: 4657)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:45:33 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 2], ["created_at", "2024-02-02 11:45:33.238939"], ["updated_at", "2024-02-02 11:45:33.238939"]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 201 Created in 20ms (Views: 0.4ms | ActiveRecord: 10.5ms | Allocations: 4670)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:45:33 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mProduct Create (0.8ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 2], ["created_at", "2024-02-02 11:45:33.475934"], ["updated_at", "2024-02-02 11:45:33.475934"]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 201 Created in 19ms (Views: 0.7ms | ActiveRecord: 10.4ms | Allocations: 4664)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:45:33 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 2], ["created_at", "2024-02-02 11:45:33.695644"], ["updated_at", "2024-02-02 11:45:33.695644"]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (8.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 201 Created in 18ms (Views: 0.3ms | ActiveRecord: 9.7ms | Allocations: 4666)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:45:34 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mProduct Create (0.8ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 2], ["created_at", "2024-02-02 11:45:34.130339"], ["updated_at", "2024-02-02 11:45:34.130339"]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 201 Created in 18ms (Views: 0.3ms | ActiveRecord: 10.1ms | Allocations: 4678)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:45:34 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mProduct Create (0.7ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 2], ["created_at", "2024-02-02 11:45:34.373493"], ["updated_at", "2024-02-02 11:45:34.373493"]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 201 Created in 25ms (Views: 0.6ms | ActiveRecord: 10.7ms | Allocations: 4676)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:45:35 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 2], ["created_at", "2024-02-02 11:45:35.210421"], ["updated_at", "2024-02-02 11:45:35.210421"]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 201 Created in 14ms (Views: 0.3ms | ActiveRecord: 2.9ms | Allocations: 4666)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:45:35 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 2], ["created_at", "2024-02-02 11:45:35.679605"], ["updated_at", "2024-02-02 11:45:35.679605"]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 201 Created in 20ms (Views: 0.4ms | ActiveRecord: 10.2ms | Allocations: 4674)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:45:36 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 2], ["created_at", "2024-02-02 11:45:36.268299"], ["updated_at", "2024-02-02 11:45:36.268299"]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 201 Created in 12ms (Views: 0.3ms | ActiveRecord: 2.7ms | Allocations: 4664)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:45:36 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 2], ["created_at", "2024-02-02 11:45:36.782760"], ["updated_at", "2024-02-02 11:45:36.782760"]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (8.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 201 Created in 21ms (Views: 0.4ms | ActiveRecord: 10.7ms | Allocations: 4670)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:45:36 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 2], ["created_at", "2024-02-02 11:45:36.982212"], ["updated_at", "2024-02-02 11:45:36.982212"]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (8.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 201 Created in 22ms (Views: 0.6ms | ActiveRecord: 10.6ms | Allocations: 4660)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:45:37 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 2], ["created_at", "2024-02-02 11:45:37.169621"], ["updated_at", "2024-02-02 11:45:37.169621"]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (8.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 201 Created in 18ms (Views: 0.4ms | ActiveRecord: 9.8ms | Allocations: 4672)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:45:37 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 2], ["created_at", "2024-02-02 11:45:37.321324"], ["updated_at", "2024-02-02 11:45:37.321324"]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 201 Created in 18ms (Views: 0.6ms | ActiveRecord: 9.8ms | Allocations: 4666)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:45:37 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 2], ["created_at", "2024-02-02 11:45:37.657055"], ["updated_at", "2024-02-02 11:45:37.657055"]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 201 Created in 20ms (Views: 0.4ms | ActiveRecord: 10.1ms | Allocations: 4666)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:45:38 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 2], ["created_at", "2024-02-02 11:45:38.071844"], ["updated_at", "2024-02-02 11:45:38.071844"]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (8.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 201 Created in 19ms (Views: 0.4ms | ActiveRecord: 10.0ms | Allocations: 4656)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:45:38 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 2], ["created_at", "2024-02-02 11:45:38.354617"], ["updated_at", "2024-02-02 11:45:38.354617"]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 201 Created in 19ms (Views: 0.3ms | ActiveRecord: 9.9ms | Allocations: 4664)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:45:38 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 2], ["created_at", "2024-02-02 11:45:38.756026"], ["updated_at", "2024-02-02 11:45:38.756026"]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 201 Created in 22ms (Views: 0.7ms | ActiveRecord: 10.0ms | Allocations: 4664)
+
+
+Started POST "/create_product" for 127.0.0.1 at 2024-02-02 14:45:39 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New Product", "description"=>"A description of the new product", "price"=>29.99, "size"=>"Medium", "stock_quantity"=>6, "brand"=>"LV", "color"=>"Blue", "category_id"=>2}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaulmuthaura2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "description", "price", "size", "color", "brand", "stock_quantity", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "New Product"], ["description", "A description of the new product"], ["price", "29.99"], ["size", "Medium"], ["color", "Blue"], ["brand", "LV"], ["stock_quantity", 6], ["category_id", 2], ["created_at", "2024-02-02 11:45:39.336824"], ["updated_at", "2024-02-02 11:45:39.336824"]]
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:10:in `create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 201 Created in 24ms (Views: 0.6ms | ActiveRecord: 10.4ms | Allocations: 4658)
+
+
+Started POST "/auth/sign_in" for 127.0.0.1 at 2024-02-02 14:46:13 +0300
+Processing by DeviseTokenAuth::SessionsController#create as */*
+  Parameters: {"email"=>"markpaulmuthaura2@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 AND "users"."provider" = $2 LIMIT $3[0m  [["email", "markpaulmuthaura2@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[37mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "[FILTERED]"], ["updated_at", "2024-02-02 11:46:13.952349"], ["id", 2]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 320ms (Views: 0.2ms | ActiveRecord: 3.9ms | Allocations: 8114)
+
+
+Started POST "/auth" for 127.0.0.1 at 2024-02-02 14:46:33 +0300
+Processing by Auth::RegistrationsController#create as */*
+  Parameters: {"user"=>{"name"=>"user1", "email"=>"user1@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:3:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "user1@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+  ↳ app/controllers/auth/registrations_controller.rb:3:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["uid", "user1@gmail.com"], ["encrypted_password", "[FILTERED]"], ["name", "user1"], ["email", "user1@gmail.com"], ["created_at", "2024-02-02 11:46:34.120441"], ["updated_at", "2024-02-02 11:46:34.120441"]]
+  ↳ app/controllers/auth/registrations_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (11.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/auth/registrations_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:6:in `block in create'
+  [1m[36mCart Create (0.6ms)[0m  [1m[32mINSERT INTO "carts" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 3], ["created_at", "2024-02-02 11:46:34.134994"], ["updated_at", "2024-02-02 11:46:34.134994"]]
+  ↳ app/controllers/auth/registrations_controller.rb:6:in `block in create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/auth/registrations_controller.rb:6:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:3:in `create'
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "[FILTERED]"], ["updated_at", "2024-02-02 11:46:34.200752"], ["id", 3]]
+  ↳ app/controllers/auth/registrations_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/auth/registrations_controller.rb:3:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/auth/registrations_controller.rb:3:in `create'
+Completed 200 OK in 314ms (Views: 0.2ms | ActiveRecord: 16.9ms | Allocations: 7444)
+
+
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 14:47:09 +0300
+  
+AbstractController::ActionNotFound (The action 'add_to_cart' could not be found for CartsController):
+  
+actionpack (7.0.7) lib/abstract_controller/base.rb:146:in `process'
+actionview (7.0.7) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.7) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.7) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.8) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.8) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.8) lib/rack/etag.rb:27:in `call'
+rack (2.2.8) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.8) lib/rack/head.rb:12:in `call'
+activerecord (7.0.7) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.7) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.7) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.8) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+rack-cors (2.0.1) lib/rack/cors.rb:102:in `call'
+railties (7.0.7) lib/rails/engine.rb:530:in `call'
+puma (5.6.7) lib/puma/configuration.rb:252:in `call'
+puma (5.6.7) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.7) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.7) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.7) lib/puma/server.rb:443:in `process_client'
+puma (5.6.7) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 14:49:37 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+  
+AbstractController::ActionNotFound (The action 'add_to_cart' could not be found for CartsController):
+  
+actionpack (7.0.7) lib/abstract_controller/base.rb:146:in `process'
+actionview (7.0.7) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.7) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.7) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.8) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.8) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.8) lib/rack/etag.rb:27:in `call'
+rack (2.2.8) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.8) lib/rack/head.rb:12:in `call'
+activerecord (7.0.7) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.7) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.7) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.8) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+rack-cors (2.0.1) lib/rack/cors.rb:102:in `call'
+railties (7.0.7) lib/rails/engine.rb:530:in `call'
+puma (5.6.7) lib/puma/configuration.rb:252:in `call'
+puma (5.6.7) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.7) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.7) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.7) lib/puma/server.rb:443:in `process_client'
+puma (5.6.7) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 14:52:57 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by CartsController#add_to_cart as */*
+  Parameters: {"product_id"=>1, "quantity"=>2, "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "user1@gmail.com"], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:18:in `add_to_cart'
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:22:in `add_to_cart'
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."cart_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["cart_id", 3], ["status", "open"], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:23:in `add_to_cart'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 422 Unprocessable Entity in 1345ms (Views: 0.2ms | ActiveRecord: 14.7ms | Allocations: 833250)
+
+
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 14:57:20 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+  
+NameError (undefined local variable or method `current_cart' for CartsController:Class):
+  
+app/controllers/carts_controller.rb:25:in `block in <class:CartsController>'
+app/controllers/carts_controller.rb:4:in `<class:CartsController>'
+app/controllers/carts_controller.rb:1:in `<top (required)>'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 14:58:57 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by CartsController#add_to_cart as */*
+  Parameters: {"product_id"=>1, "quantity"=>2, "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "user1@gmail.com"], ["LIMIT", 1]]
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:22:in `add_to_cart'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:25:in `add_to_cart'
+  [1m[36mOrderItem Load (0.3ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."cart_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["cart_id", 3], ["product_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:33:in `add_to_cart'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:46:in `block in add_to_cart'
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."cart_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["cart_id", 3], ["status", "open"], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:46:in `block in add_to_cart'
+  [1m[36mOrderItem Create (0.9ms)[0m  [1m[32mINSERT INTO "order_items" ("product_id", "quantity", "created_at", "updated_at", "cart_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["product_id", 1], ["quantity", 2], ["created_at", "2024-02-02 11:58:58.022076"], ["updated_at", "2024-02-02 11:58:58.022076"], ["cart_id", 3]]
+  ↳ app/controllers/carts_controller.rb:52:in `block in add_to_cart'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/carts_controller.rb:44:in `add_to_cart'
+Completed 500 Internal Server Error in 168ms (ActiveRecord: 15.4ms | Allocations: 112852)
+
+
+  
+ActiveRecord::NotNullViolation (PG::NotNullViolation: ERROR:  null value in column "order_id" violates not-null constraint
+DETAIL:  Failing row contains (1, null, 1, 2, null, 2024-02-02 11:58:58.022076, 2024-02-02 11:58:58.022076, 3).
+):
+  
+app/controllers/carts_controller.rb:52:in `block in add_to_cart'
+app/controllers/carts_controller.rb:44:in `add_to_cart'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 15:00:54 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+  
+NameError (undefined local variable or method `current_cart' for CartsController:Class):
+  
+app/controllers/carts_controller.rb:22:in `block (2 levels) in <class:CartsController>'
+app/controllers/carts_controller.rb:20:in `block in <class:CartsController>'
+app/controllers/carts_controller.rb:4:in `<class:CartsController>'
+app/controllers/carts_controller.rb:1:in `<top (required)>'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 15:07:04 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+  
+NameError (undefined local variable or method `current_cart' for CartsController:Class):
+  
+app/controllers/carts_controller.rb:22:in `block (2 levels) in <class:CartsController>'
+app/controllers/carts_controller.rb:20:in `block in <class:CartsController>'
+app/controllers/carts_controller.rb:4:in `<class:CartsController>'
+app/controllers/carts_controller.rb:1:in `<top (required)>'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 15:13:16 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by CartsController#add_to_cart as */*
+  Parameters: {"product_id"=>1, "quantity"=>2, "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "user1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:22:in `add_to_cart'
+Completed 500 Internal Server Error in 127ms (ActiveRecord: 9.8ms | Allocations: 71703)
+
+
+  
+NameError (undefined local variable or method `current_cart' for #<CartsController:0x0000000000a9d8>
+Did you mean?  @current_cart):
+  
+app/controllers/carts_controller.rb:29:in `add_to_cart'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 15:26:40 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by CartsController#add_to_cart as */*
+  Parameters: {"product_id"=>1, "quantity"=>2, "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "user1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:22:in `add_to_cart'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:29:in `add_to_cart'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:29:in `add_to_cart'
+  [1m[36mCart Create (0.6ms)[0m  [1m[32mINSERT INTO "carts" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 3], ["created_at", "2024-02-02 12:26:40.798990"], ["updated_at", "2024-02-02 12:26:40.798990"]]
+  ↳ app/controllers/carts_controller.rb:29:in `add_to_cart'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/carts_controller.rb:29:in `add_to_cart'
+Completed 422 Unprocessable Entity in 130ms (ActiveRecord: 11.9ms | Allocations: 72509)
+
+
+  
+ActiveRecord::RecordNotSaved (Failed to remove the existing associated current_cart. The record failed to save after its foreign key was set to nil.):
+  
+app/controllers/carts_controller.rb:29:in `add_to_cart'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 15:34:57 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by CartsController#add_to_cart as */*
+  Parameters: {"product_id"=>1, "quantity"=>2, "id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "user1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:22:in `add_to_cart'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:29:in `add_to_cart'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:29:in `add_to_cart'
+  [1m[36mCart Create (0.9ms)[0m  [1m[32mINSERT INTO "carts" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 3], ["created_at", "2024-02-02 12:34:57.649174"], ["updated_at", "2024-02-02 12:34:57.649174"]]
+  ↳ app/controllers/carts_controller.rb:29:in `add_to_cart'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/carts_controller.rb:29:in `add_to_cart'
+Completed 422 Unprocessable Entity in 127ms (ActiveRecord: 13.8ms | Allocations: 72513)
+
+
+  
+ActiveRecord::RecordNotSaved (Failed to remove the existing associated current_cart. The record failed to save after its foreign key was set to nil.):
+  
+app/controllers/carts_controller.rb:29:in `add_to_cart'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 15:40:37 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by CartsController#add_to_cart as */*
+  Parameters: {"product_id"=>1, "quantity"=>2, "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "user1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:22:in `add_to_cart'
+  [1m[36mOrderItem Load (0.7ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."cart_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["cart_id", 3], ["product_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:32:in `add_to_cart'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:45:in `block in add_to_cart'
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."cart_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["cart_id", 3], ["status", "open"], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:45:in `block in add_to_cart'
+  [1m[36mOrderItem Create (0.9ms)[0m  [1m[32mINSERT INTO "order_items" ("product_id", "quantity", "created_at", "updated_at", "cart_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["product_id", 1], ["quantity", 2], ["created_at", "2024-02-02 12:40:37.601107"], ["updated_at", "2024-02-02 12:40:37.601107"], ["cart_id", 3]]
+  ↳ app/controllers/carts_controller.rb:51:in `block in add_to_cart'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/carts_controller.rb:43:in `add_to_cart'
+Completed 500 Internal Server Error in 164ms (ActiveRecord: 15.3ms | Allocations: 112594)
+
+
+  
+ActiveRecord::NotNullViolation (PG::NotNullViolation: ERROR:  null value in column "order_id" violates not-null constraint
+DETAIL:  Failing row contains (2, null, 1, 2, null, 2024-02-02 12:40:37.601107, 2024-02-02 12:40:37.601107, 3).
+):
+  
+app/controllers/carts_controller.rb:51:in `block in add_to_cart'
+app/controllers/carts_controller.rb:43:in `add_to_cart'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 15:45:03 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by CartsController#add_to_cart as */*
+  Parameters: {"product_id"=>1, "quantity"=>2, "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "user1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:22:in `add_to_cart'
+  [1m[36mOrderItem Load (0.4ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."cart_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["cart_id", 3], ["product_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:32:in `add_to_cart'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:45:in `block in add_to_cart'
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."cart_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["cart_id", 3], ["status", "open"], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:45:in `block in add_to_cart'
+  [1m[36mOrderItem Create (0.7ms)[0m  [1m[32mINSERT INTO "order_items" ("product_id", "quantity", "created_at", "updated_at", "cart_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["product_id", 1], ["quantity", 2], ["created_at", "2024-02-02 12:45:03.732047"], ["updated_at", "2024-02-02 12:45:03.732047"], ["cart_id", 3]]
+  ↳ app/controllers/carts_controller.rb:51:in `block in add_to_cart'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/carts_controller.rb:43:in `add_to_cart'
+Completed 500 Internal Server Error in 158ms (ActiveRecord: 15.1ms | Allocations: 112595)
+
+
+  
+ActiveRecord::NotNullViolation (PG::NotNullViolation: ERROR:  null value in column "order_id" violates not-null constraint
+DETAIL:  Failing row contains (3, null, 1, 2, null, 2024-02-02 12:45:03.732047, 2024-02-02 12:45:03.732047, 3).
+):
+  
+app/controllers/carts_controller.rb:51:in `block in add_to_cart'
+app/controllers/carts_controller.rb:43:in `add_to_cart'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 15:45:52 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by CartsController#add_to_cart as */*
+  Parameters: {"product_id"=>1, "quantity"=>2, "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "user1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:22:in `add_to_cart'
+  [1m[36mOrderItem Load (0.2ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."cart_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["cart_id", 3], ["product_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:32:in `add_to_cart'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:45:in `block in add_to_cart'
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."cart_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["cart_id", 3], ["status", "open"], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:45:in `block in add_to_cart'
+  [1m[36mOrderItem Create (0.6ms)[0m  [1m[32mINSERT INTO "order_items" ("product_id", "quantity", "created_at", "updated_at", "cart_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["product_id", 1], ["quantity", 2], ["created_at", "2024-02-02 12:45:53.227802"], ["updated_at", "2024-02-02 12:45:53.227802"], ["cart_id", 3]]
+  ↳ app/controllers/carts_controller.rb:51:in `block in add_to_cart'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/carts_controller.rb:43:in `add_to_cart'
+Completed 500 Internal Server Error in 152ms (ActiveRecord: 14.4ms | Allocations: 112593)
+
+
+  
+ActiveRecord::NotNullViolation (PG::NotNullViolation: ERROR:  null value in column "order_id" violates not-null constraint
+DETAIL:  Failing row contains (4, null, 1, 2, null, 2024-02-02 12:45:53.227802, 2024-02-02 12:45:53.227802, 3).
+):
+  
+app/controllers/carts_controller.rb:51:in `block in add_to_cart'
+app/controllers/carts_controller.rb:43:in `add_to_cart'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 15:47:09 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by CartsController#add_to_cart as */*
+  Parameters: {"product_id"=>1, "quantity"=>2, "id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "user1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:22:in `add_to_cart'
+  [1m[36mOrderItem Load (0.5ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."cart_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["cart_id", 3], ["product_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:32:in `add_to_cart'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:45:in `block in add_to_cart'
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."cart_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["cart_id", 3], ["status", "open"], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:45:in `block in add_to_cart'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/carts_controller.rb:43:in `add_to_cart'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 1236ms (Views: 0.2ms | ActiveRecord: 15.7ms | Allocations: 834041)
+
+
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  [1m[36mOrderItem Load (0.5ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items"[0m
+  [1m[36mCart Load (0.7ms)[0m  [1m[34mSELECT "carts".* FROM "carts"[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 15:51:34 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by CartsController#add_to_cart as */*
+  Parameters: {"product_id"=>2, "quantity"=>2, "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "user1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:76:in `add_to_cart'
+  [1m[36mOrderItem Load (0.2ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."cart_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["cart_id", 3], ["product_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:86:in `add_to_cart'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:99:in `block in add_to_cart'
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."cart_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["cart_id", 3], ["status", "open"], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:99:in `block in add_to_cart'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/carts_controller.rb:97:in `add_to_cart'
+No template found for CartsController#add_to_cart, rendering head :no_content
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 204 No Content in 1200ms (ActiveRecord: 13.5ms | Allocations: 834552)
+
+
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 15:54:58 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by CartsController#add_to_cart as */*
+  Parameters: {"product_id"=>2, "quantity"=>2, "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "user1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:76:in `add_to_cart'
+  [1m[36mOrderItem Load (0.2ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."cart_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["cart_id", 3], ["product_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:86:in `add_to_cart'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:99:in `block in add_to_cart'
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."cart_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["cart_id", 3], ["status", "open"], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:99:in `block in add_to_cart'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/carts_controller.rb:97:in `add_to_cart'
+No template found for CartsController#add_to_cart, rendering head :no_content
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 204 No Content in 1217ms (ActiveRecord: 13.1ms | Allocations: 834559)
+
+
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 15:57:00 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/markpaul/projects/skyva-api/app/controllers/carts_controller.rb:236: syntax error, unexpected `end', expecting end-of-input):
+  
+app/controllers/carts_controller.rb:236: syntax error, unexpected `end', expecting end-of-input
+app/controllers/carts_controller.rb:236: syntax error, unexpected `end', expecting end-of-input
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 15:59:18 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/markpaul/projects/skyva-api/app/controllers/carts_controller.rb:230: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/carts_controller.rb:230: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/carts_controller.rb:230: syntax error, unexpected end-of-input, expecting `end'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 15:59:59 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by CartsController#add_to_cart as */*
+  Parameters: {"product_id"=>2, "quantity"=>2, "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "user1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:76:in `add_to_cart'
+  [1m[36mOrderItem Load (0.2ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."cart_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["cart_id", 3], ["product_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:86:in `add_to_cart'
+Completed 500 Internal Server Error in 133ms (ActiveRecord: 10.4ms | Allocations: 93960)
+
+
+  
+NameError (undefined local variable or method `order' for #<CartsController:0x0000000000a758>
+Did you mean?  order_url):
+  
+app/controllers/carts_controller.rb:105:in `block in add_to_cart'
+app/controllers/carts_controller.rb:101:in `add_to_cart'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 16:01:38 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by CartsController#add_to_cart as */*
+  Parameters: {"product_id"=>2, "quantity"=>2, "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "user1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:76:in `add_to_cart'
+  [1m[36mOrderItem Load (0.4ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."cart_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["cart_id", 3], ["product_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:86:in `add_to_cart'
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."cart_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["cart_id", 3], ["status", "open"], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:97:in `add_to_cart'
+No template found for CartsController#add_to_cart, rendering head :no_content
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 204 No Content in 1206ms (ActiveRecord: 14.6ms | Allocations: 833714)
+
+
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  [1m[36mOrderItem Load (0.6ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items"[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 16:03:51 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by CartsController#add_to_cart as */*
+  Parameters: {"product_id"=>2, "quantity"=>2, "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "user1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:76:in `add_to_cart'
+  [1m[36mOrderItem Load (0.4ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."cart_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["cart_id", 3], ["product_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:86:in `add_to_cart'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:99:in `block in add_to_cart'
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."cart_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["cart_id", 3], ["status", "open"], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:99:in `block in add_to_cart'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/carts_controller.rb:97:in `add_to_cart'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:114:in `add_to_cart'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:114:in `add_to_cart'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/carts_controller.rb:114:in `add_to_cart'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 422 Unprocessable Entity in 1210ms (Views: 0.2ms | ActiveRecord: 14.7ms | Allocations: 837064)
+
+
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 16:06:00 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/markpaul/projects/skyva-api/app/controllers/carts_controller.rb:237: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/carts_controller.rb:237: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/carts_controller.rb:237: syntax error, unexpected end-of-input, expecting `end'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 16:06:16 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by CartsController#add_to_cart as */*
+  Parameters: {"product_id"=>2, "quantity"=>2, "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "user1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:76:in `add_to_cart'
+  [1m[36mOrderItem Load (0.2ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."cart_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["cart_id", 3], ["product_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:86:in `add_to_cart'
+Starting transaction...
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:103:in `block in add_to_cart'
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."cart_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["cart_id", 3], ["status", "open"], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:103:in `block in add_to_cart'
+Found or created order: #<Order id: nil, user_id: nil, status: "open", total_amount: nil, shipping_address: nil, payment_details: nil, created_at: nil, updated_at: nil, cart_id: 3>
+Errors: ["User must exist"]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/carts_controller.rb:99:in `add_to_cart'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:123:in `add_to_cart'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:123:in `add_to_cart'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/carts_controller.rb:123:in `add_to_cart'
+Completed 500 Internal Server Error in 1264ms (ActiveRecord: 14.5ms | Allocations: 836009)
+
+
+  
+ActiveRecord::Rollback (ActiveRecord::Rollback):
+  
+app/controllers/carts_controller.rb:127:in `add_to_cart'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 16:11:42 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by CartsController#add_to_cart as */*
+  Parameters: {"product_id"=>2, "quantity"=>2, "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "user1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:79:in `add_to_cart'
+  [1m[36mOrderItem Load (0.2ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."cart_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["cart_id", 3], ["product_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:89:in `add_to_cart'
+Starting transaction...
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:106:in `block in add_to_cart'
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."cart_id" = $1 AND "orders"."status" = $2 LIMIT $3[0m  [["cart_id", 3], ["status", "open"], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:106:in `block in add_to_cart'
+Found or created order: #<Order id: nil, user_id: nil, status: "open", total_amount: nil, shipping_address: nil, payment_details: nil, created_at: nil, updated_at: nil, cart_id: 3>
+Errors: ["User must exist"]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/carts_controller.rb:102:in `add_to_cart'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:126:in `add_to_cart'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:126:in `add_to_cart'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/carts_controller.rb:126:in `add_to_cart'
+Completed 500 Internal Server Error in 1214ms (ActiveRecord: 13.4ms | Allocations: 836013)
+
+
+  
+ActiveRecord::Rollback (ActiveRecord::Rollback):
+  
+app/controllers/carts_controller.rb:130:in `add_to_cart'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 16:16:51 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by CartsController#add_to_cart as */*
+  Parameters: {"product_id"=>2, "quantity"=>2, "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "user1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:79:in `add_to_cart'
+  [1m[36mOrderItem Load (0.4ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."cart_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["cart_id", 3], ["product_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:89:in `add_to_cart'
+Starting transaction...
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:107:in `block in add_to_cart'
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."cart_id" = $2 AND "orders"."status" = $3 LIMIT $4[0m  [["user_id", 3], ["cart_id", 3], ["status", "open"], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:107:in `block in add_to_cart'
+  [1m[36mOrder Create (1.0ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "status", "created_at", "updated_at", "cart_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 3], ["status", "open"], ["created_at", "2024-02-02 13:16:51.921362"], ["updated_at", "2024-02-02 13:16:51.921362"], ["cart_id", 3]]
+  ↳ app/controllers/carts_controller.rb:107:in `block in add_to_cart'
+Found or created order: #<Order id: 1, user_id: 3, status: "open", total_amount: nil, shipping_address: nil, payment_details: nil, created_at: "2024-02-02 13:16:51.921362000 +0000", updated_at: "2024-02-02 13:16:51.921362000 +0000", cart_id: 3>
+Errors: ["Order must exist"]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/carts_controller.rb:103:in `add_to_cart'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:132:in `add_to_cart'
+  [1m[36mOrder Create (0.8ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "status", "created_at", "updated_at", "cart_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 3], ["status", "open"], ["created_at", "2024-02-02 13:16:51.921362"], ["updated_at", "2024-02-02 13:16:51.921362"], ["cart_id", 3]]
+  ↳ app/controllers/carts_controller.rb:132:in `add_to_cart'
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/carts_controller.rb:132:in `add_to_cart'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:132:in `add_to_cart'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:132:in `add_to_cart'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/carts_controller.rb:132:in `add_to_cart'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 1261ms (Views: 0.2ms | ActiveRecord: 27.4ms | Allocations: 840222)
+
+
+  [1m[36mOrderItem Load (0.6ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items"[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+  [1m[36mOrderItem Load (0.6ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items"[0m
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m

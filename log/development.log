@@ -9764,7 +9764,13 @@ The new connection handling does not support `connection_handlers`
 getter and setter.
 
 Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+<<<<<<< HEAD
  (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+=======
+ (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/models/user.rb:3)
+  [1m[35m (134.5ms)[0m  [1m[35mCREATE DATABASE "skyva_api" ENCODING = 'unicode'[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE DATABASE "skyva_api" ENCODING = 'unicode'[0m
+>>>>>>> ceb27d7649c9a9e5a144205fa3b3a48970921d3f
 DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
 `legacy_connection_handling` to `false` in your application.
 
@@ -9772,7 +9778,59 @@ The new connection handling does not support `connection_handlers`
 getter and setter.
 
 Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+<<<<<<< HEAD
  (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+=======
+ (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/models/user.rb:3)
+  [1m[35m (91.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (87.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3422183495574815895)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseTokenAuthCreateUsers (20230819204134)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (72.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "provider" character varying DEFAULT 'email' NOT NULL, "uid" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "allow_password_change" boolean DEFAULT FALSE, "remember_created_at" timestamp(6), "confirmation_token" character varying, "confirmed_at" timestamp(6), "confirmation_sent_at" timestamp(6), "unconfirmed_email" character varying, "name" character varying, "nickname" character varying, "image" character varying, "email" character varying, "tokens" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (30.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (32.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_uid_and_provider" ON "users" ("uid", "provider")[0m
+  [1m[35m (24.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (23.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230819204134"]]
+  [1m[36mTRANSACTION (13.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddRoleToUsers (20230821020342)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "role" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230821020342"]]
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePosts (20230821021958)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (73.7ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying, "content" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230821021958"]]
+  [1m[36mTRANSACTION (19.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActiveStorageTables (20230821023831)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (57.9ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "service_name" character varying NOT NULL, "byte_size" bigint NOT NULL, "checksum" character varying, "created_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (48.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (49.7ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (23.0ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (24.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (49.6ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" bigserial primary key, "blob_id" bigint NOT NULL, "variation_digest" character varying NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (24.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230821023831"]]
+  [1m[36mTRANSACTION (16.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProducts (20230928093423)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (60.2ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "name" character varying, "description" text, "price" decimal, "size" character varying, "color" character varying, "brand" character varying, "stock_quantity" integer, "category_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_fb915499a4"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(3422183495574815895)[0m
+>>>>>>> ceb27d7649c9a9e5a144205fa3b3a48970921d3f
 DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
 `legacy_connection_handling` to `false` in your application.
 
@@ -9780,4 +9838,1172 @@ The new connection handling does not support `connection_handlers`
 getter and setter.
 
 Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+<<<<<<< HEAD
  (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+=======
+ (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/models/user.rb:3)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3422183495574815895)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateProducts (20230928093423)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (108.6ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "name" character varying, "description" text, "price" decimal, "size" character varying, "color" character varying, "brand" character varying, "stock_quantity" integer, "category_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_fb915499a4"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(3422183495574815895)[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/models/user.rb:3)
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3422183495574815895)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCategories (20230928093441)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (69.1ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "name" character varying, "description" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230928093441"]]
+  [1m[36mTRANSACTION (21.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOrders (20230928093450)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (69.7ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "user_id" bigint NOT NULL, "status" character varying, "total_amount" decimal, "shipping_address" text, "payment_details" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_f868b47f6a"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (30.3ms)[0m  [1m[35mCREATE INDEX "index_orders_on_user_id" ON "orders" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230928093450"]]
+  [1m[36mTRANSACTION (20.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOrderItems (20230928093507)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (72.0ms)[0m  [1m[35mCREATE TABLE "order_items" ("id" bigserial primary key, "order_id" bigint NOT NULL, "product_id" bigint NOT NULL, "quantity" integer, "price" decimal, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_e3cb28f071"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+, CONSTRAINT "fk_rails_f1a29ddd47"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(3422183495574815895)[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/models/user.rb:3)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3422183495574815895)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateProducts (20230928093423)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (84.3ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "name" character varying, "description" text, "price" decimal, "size" character varying, "color" character varying, "brand" character varying, "stock_quantity" integer, "category_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_fb915499a4"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+)[0m
+  [1m[35m (31.0ms)[0m  [1m[35mCREATE INDEX "index_products_on_category_id" ON "products" ("category_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230928093423"]]
+  [1m[36mTRANSACTION (14.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOrderItems (20230928093507)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (70.8ms)[0m  [1m[35mCREATE TABLE "order_items" ("id" bigserial primary key, "order_id" bigint NOT NULL, "product_id" bigint NOT NULL, "quantity" integer, "price" decimal, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_e3cb28f071"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+, CONSTRAINT "fk_rails_f1a29ddd47"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  [1m[35m (30.7ms)[0m  [1m[35mCREATE INDEX "index_order_items_on_order_id" ON "order_items" ("order_id")[0m
+  [1m[35m (31.9ms)[0m  [1m[35mCREATE INDEX "index_order_items_on_product_id" ON "order_items" ("product_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230928093507"]]
+  [1m[36mTRANSACTION (14.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCarts (20230928093648)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (37.9ms)[0m  [1m[35mCREATE TABLE "carts" ("id" bigserial primary key, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_ea59a35211"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (47.7ms)[0m  [1m[35mCREATE INDEX "index_carts_on_user_id" ON "carts" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230928093648"]]
+  [1m[36mTRANSACTION (19.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAddresses (20230928093657)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (61.9ms)[0m  [1m[35mCREATE TABLE "addresses" ("id" bigserial primary key, "user_id" bigint NOT NULL, "address_type" character varying, "street" character varying, "city" character varying, "state" character varying, "postal_code" character varying, "country" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_48c9e0c5a2"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (38.8ms)[0m  [1m[35mCREATE INDEX "index_addresses_on_user_id" ON "addresses" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230928093657"]]
+  [1m[36mTRANSACTION (89.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateReceipts (20230928094034)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (60.0ms)[0m  [1m[35mCREATE TABLE "receipts" ("id" bigserial primary key, "order_id" bigint NOT NULL, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_de8c1572cc"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+, CONSTRAINT "fk_rails_b2d4d3fa14"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (23.1ms)[0m  [1m[35mCREATE INDEX "index_receipts_on_order_id" ON "receipts" ("order_id")[0m
+  [1m[35m (24.3ms)[0m  [1m[35mCREATE INDEX "index_receipts_on_user_id" ON "receipts" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230928094034"]]
+  [1m[36mTRANSACTION (20.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBrands (20231002082120)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (65.7ms)[0m  [1m[35mCREATE TABLE "brands" ("id" bigserial primary key, "name" character varying, "description" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20231002082120"]]
+  [1m[36mTRANSACTION (18.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddCartReferenceToOrderItems (20231002130233)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "order_items" ADD "cart_id" bigint NOT NULL[0m
+  [1m[35m (37.1ms)[0m  [1m[35mCREATE INDEX "index_order_items_on_cart_id" ON "order_items" ("cart_id")[0m
+  [1m[35m (1.9ms)[0m  [1m[35mALTER TABLE "order_items" ADD CONSTRAINT "fk_rails_59f7f23852"
+FOREIGN KEY ("cart_id")
+  REFERENCES "carts" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20231002130233"]]
+  [1m[36mTRANSACTION (15.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddCartReferenceToOrders (20231010093453)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT "carts".* FROM "carts" ORDER BY "carts"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "orders" ADD "cart_id" bigint NOT NULL[0m
+  [1m[35m (54.2ms)[0m  [1m[35mCREATE INDEX "index_orders_on_cart_id" ON "orders" ("cart_id")[0m
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "orders" ADD CONSTRAINT "fk_rails_5cdf0e0ad4"
+FOREIGN KEY ("cart_id")
+  REFERENCES "carts" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20231010093453"]]
+  [1m[36mTRANSACTION (12.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-10-29 13:05:00.409749"], ["updated_at", "2023-10-29 13:05:00.409749"]]
+  [1m[36mTRANSACTION (9.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(3422183495574815895)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/models/user.rb:3)
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (1.1ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Clothes"], ["description", "Clothing category"], ["created_at", "2023-10-29 13:05:49.460330"], ["updated_at", "2023-10-29 13:05:49.460330"]]
+  [1m[36mTRANSACTION (82.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Shoes"], ["description", "Footwear category"], ["created_at", "2023-10-29 13:05:49.551860"], ["updated_at", "2023-10-29 13:05:49.551860"]]
+  [1m[36mTRANSACTION (33.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Jewelry"], ["description", "Jewelry category"], ["created_at", "2023-10-29 13:05:49.591429"], ["updated_at", "2023-10-29 13:05:49.591429"]]
+  [1m[36mTRANSACTION (9.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Men"], ["description", "Men's clothing"], ["created_at", "2023-10-29 13:05:49.607157"], ["updated_at", "2023-10-29 13:05:49.607157"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Women"], ["description", "Women's clothing"], ["created_at", "2023-10-29 13:05:49.615607"], ["updated_at", "2023-10-29 13:05:49.615607"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBrand Create (1.1ms)[0m  [1m[32mINSERT INTO "brands" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Swift-Batz"], ["description", "Voluptas inventore autem nemo."], ["created_at", "2023-10-29 13:05:51.096458"], ["updated_at", "2023-10-29 13:05:51.096458"]]
+  [1m[36mTRANSACTION (19.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBrand Create (0.6ms)[0m  [1m[32mINSERT INTO "brands" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Gibson and Sons"], ["description", "Iste vitae animi molestiae."], ["created_at", "2023-10-29 13:05:51.125228"], ["updated_at", "2023-10-29 13:05:51.125228"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBrand Create (0.8ms)[0m  [1m[32mINSERT INTO "brands" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Glover-Lueilwitz"], ["description", "Laborum ea labore vel."], ["created_at", "2023-10-29 13:05:51.133531"], ["updated_at", "2023-10-29 13:05:51.133531"]]
+  [1m[36mTRANSACTION (18.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBrand Create (0.6ms)[0m  [1m[32mINSERT INTO "brands" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Considine Group"], ["description", "Dolores sed consequatur sunt."], ["created_at", "2023-10-29 13:05:51.157455"], ["updated_at", "2023-10-29 13:05:51.157455"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBrand Create (0.6ms)[0m  [1m[32mINSERT INTO "brands" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Stanton, Pollich and Sanford"], ["description", "Modi et ipsum sit."], ["created_at", "2023-10-29 13:05:51.166064"], ["updated_at", "2023-10-29 13:05:51.166064"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mCOMMIT[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/models/user.rb:3)
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/models/user.rb:3)
+Started POST "/auth" for 127.0.0.1 at 2023-10-29 16:19:01 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/controllers/application_controller.rb:1)
+Processing by Auth::RegistrationsController#create as */*
+  Parameters: {"email"=>"markpaul@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:23:in `create'
+  [1m[36mUser Exists? (19.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "markpaul@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+  ↳ app/controllers/auth/registrations_controller.rb:23:in `create'
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["uid", "markpaul@gmail.com"], ["encrypted_password", "[FILTERED]"], ["email", "markpaul@gmail.com"], ["created_at", "2023-10-29 13:19:03.893641"], ["updated_at", "2023-10-29 13:19:03.893641"]]
+  ↳ app/controllers/auth/registrations_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (16.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/auth/registrations_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:26:in `block in create'
+  [1m[36mCart Create (1.1ms)[0m  [1m[32mINSERT INTO "carts" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2023-10-29 13:19:03.953954"], ["updated_at", "2023-10-29 13:19:03.953954"]]
+  ↳ app/controllers/auth/registrations_controller.rb:26:in `block in create'
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/auth/registrations_controller.rb:26:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:23:in `create'
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "[FILTERED]"], ["updated_at", "2023-10-29 13:19:04.022516"], ["id", 1]]
+  ↳ app/controllers/auth/registrations_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/auth/registrations_controller.rb:23:in `create'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/auth/registrations_controller.rb:23:in `create'
+Completed 200 OK in 2530ms (Views: 0.5ms | ActiveRecord: 65.2ms | Allocations: 999913)
+
+
+Started POST "/auth/sign_in" for 127.0.0.1 at 2023-10-29 16:20:38 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+"email": "markpaul@gmail.com",
+"paswword": "markpaul"
+
+Processing by DeviseTokenAuth::SessionsController#create as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 267)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+actionpack (7.0.7) lib/action_dispatch/http/parameters.rb:96:in `rescue in parse_formatted_parameters'
+actionpack (7.0.7) lib/action_dispatch/http/parameters.rb:92:in `parse_formatted_parameters'
+actionpack (7.0.7) lib/action_dispatch/http/request.rb:389:in `block in POST'
+rack (2.2.8) lib/rack/request.rb:69:in `fetch'
+rack (2.2.8) lib/rack/request.rb:69:in `fetch_header'
+actionpack (7.0.7) lib/action_dispatch/http/request.rb:388:in `POST'
+actionpack (7.0.7) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (7.0.7) lib/action_controller/metal/strong_parameters.rb:1209:in `params'
+devise_token_auth (1.2.2) app/controllers/devise_token_auth/sessions_controller.rb:130:in `resource_params'
+devise_token_auth (1.2.2) app/controllers/devise_token_auth/sessions_controller.rb:14:in `create'
+actionpack (7.0.7) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.0.7) lib/abstract_controller/base.rb:215:in `process_action'
+actionpack (7.0.7) lib/action_controller/metal/rendering.rb:165:in `process_action'
+actionpack (7.0.7) lib/abstract_controller/callbacks.rb:234:in `block in process_action'
+activesupport (7.0.7) lib/active_support/callbacks.rb:107:in `run_callbacks'
+actionpack (7.0.7) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.7) lib/action_controller/metal/rescue.rb:23:in `process_action'
+actionpack (7.0.7) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.7) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.7) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.7) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.7) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.7) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.7) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.7) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.7) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.7) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.7) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/routing/mapper.rb:18:in `block in <class:Constraints>'
+actionpack (7.0.7) lib/action_dispatch/routing/mapper.rb:48:in `serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.8) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.8) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.8) lib/rack/etag.rb:27:in `call'
+rack (2.2.8) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.8) lib/rack/head.rb:12:in `call'
+activerecord (7.0.7) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.7) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.7) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.8) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+rack-cors (2.0.1) lib/rack/cors.rb:102:in `call'
+railties (7.0.7) lib/rails/engine.rb:530:in `call'
+puma (5.6.7) lib/puma/configuration.rb:252:in `call'
+puma (5.6.7) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.7) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.7) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.7) lib/puma/server.rb:443:in `process_client'
+puma (5.6.7) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/auth/sign_in" for 127.0.0.1 at 2023-10-29 16:21:22 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+"email": "markpaul@gmail.com",
+"paswword": "markpaul"
+
+Processing by DeviseTokenAuth::SessionsController#create as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 124)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+actionpack (7.0.7) lib/action_dispatch/http/parameters.rb:96:in `rescue in parse_formatted_parameters'
+actionpack (7.0.7) lib/action_dispatch/http/parameters.rb:92:in `parse_formatted_parameters'
+actionpack (7.0.7) lib/action_dispatch/http/request.rb:389:in `block in POST'
+rack (2.2.8) lib/rack/request.rb:69:in `fetch'
+rack (2.2.8) lib/rack/request.rb:69:in `fetch_header'
+actionpack (7.0.7) lib/action_dispatch/http/request.rb:388:in `POST'
+actionpack (7.0.7) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (7.0.7) lib/action_controller/metal/strong_parameters.rb:1209:in `params'
+devise_token_auth (1.2.2) app/controllers/devise_token_auth/sessions_controller.rb:130:in `resource_params'
+devise_token_auth (1.2.2) app/controllers/devise_token_auth/sessions_controller.rb:14:in `create'
+actionpack (7.0.7) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.0.7) lib/abstract_controller/base.rb:215:in `process_action'
+actionpack (7.0.7) lib/action_controller/metal/rendering.rb:165:in `process_action'
+actionpack (7.0.7) lib/abstract_controller/callbacks.rb:234:in `block in process_action'
+activesupport (7.0.7) lib/active_support/callbacks.rb:107:in `run_callbacks'
+actionpack (7.0.7) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.7) lib/action_controller/metal/rescue.rb:23:in `process_action'
+actionpack (7.0.7) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.7) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.7) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.7) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.7) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.7) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.7) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.7) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.7) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.7) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.7) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/routing/mapper.rb:18:in `block in <class:Constraints>'
+actionpack (7.0.7) lib/action_dispatch/routing/mapper.rb:48:in `serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.7) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.7) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.8) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.8) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.8) lib/rack/etag.rb:27:in `call'
+rack (2.2.8) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.8) lib/rack/head.rb:12:in `call'
+activerecord (7.0.7) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.7) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.7) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.7) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.7) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.8) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.7) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+rack-cors (2.0.1) lib/rack/cors.rb:102:in `call'
+railties (7.0.7) lib/rails/engine.rb:530:in `call'
+puma (5.6.7) lib/puma/configuration.rb:252:in `call'
+puma (5.6.7) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.7) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.7) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.7) lib/puma/server.rb:443:in `process_client'
+puma (5.6.7) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/auth/sign_in" for 127.0.0.1 at 2023-10-29 16:22:15 +0300
+Processing by DeviseTokenAuth::SessionsController#create as */*
+  Parameters: {"email"=>"markpaul@gmail.com", "paswword"=>"markpaul"}
+[31mUnpermitted parameter: :paswword. Context: { controller: DeviseTokenAuth::SessionsController, action: create, request: #<ActionDispatch::Request:0x00007ffa193876b8>, params: {"email"=>"markpaul@gmail.com", "paswword"=>"markpaul", "controller"=>"devise_token_auth/sessions", "action"=>"create"} }[0m
+[31mUnpermitted parameter: :paswword. Context: { controller: DeviseTokenAuth::SessionsController, action: create, request: #<ActionDispatch::Request:0x00007ffa193876b8>, params: {"email"=>"markpaul@gmail.com", "paswword"=>"markpaul", "controller"=>"devise_token_auth/sessions", "action"=>"create"} }[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 AND "users"."provider" = $2 LIMIT $3[0m  [["email", "markpaul@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+[31mUnpermitted parameter: :paswword. Context: { controller: DeviseTokenAuth::SessionsController, action: create, request: #<ActionDispatch::Request:0x00007ffa193876b8>, params: {"email"=>"markpaul@gmail.com", "paswword"=>"markpaul", "controller"=>"devise_token_auth/sessions", "action"=>"create"} }[0m
+Completed 401 Unauthorized in 10ms (Views: 0.5ms | ActiveRecord: 0.6ms | Allocations: 2250)
+
+
+Started POST "/auth/sign_in" for 127.0.0.1 at 2023-10-29 16:22:31 +0300
+Processing by DeviseTokenAuth::SessionsController#create as */*
+  Parameters: {"email"=>"markpaul@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 AND "users"."provider" = $2 LIMIT $3[0m  [["email", "markpaul@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[37mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "[FILTERED]"], ["updated_at", "2023-10-29 13:22:32.001253"], ["id", 1]]
+  [1m[36mTRANSACTION (14.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 307ms (Views: 0.3ms | ActiveRecord: 17.8ms | Allocations: 7273)
+
+
+Started POST "/auth/sign_in" for 127.0.0.1 at 2023-10-29 16:49:32 +0300
+Processing by DeviseTokenAuth::SessionsController#create as */*
+  Parameters: {"email"=>"markpaul@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 AND "users"."provider" = $2 LIMIT $3[0m  [["email", "markpaul@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[37mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Update (1.3ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "[FILTERED]"], ["updated_at", "2023-10-29 13:49:32.744951"], ["id", 1]]
+  [1m[36mTRANSACTION (14.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 364ms (Views: 0.4ms | ActiveRecord: 29.6ms | Allocations: 16061)
+
+
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/models/user.rb:3)
+Started POST "/auth" for 127.0.0.1 at 2023-10-29 16:59:46 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/controllers/application_controller.rb:1)
+Processing by Auth::RegistrationsController#create as */*
+  Parameters: {"email"=>"markpaul@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:21:in `create'
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "markpaul@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+  ↳ app/controllers/auth/registrations_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/auth/registrations_controller.rb:21:in `create'
+Completed 422 Unprocessable Entity in 2078ms (Views: 0.8ms | ActiveRecord: 11.5ms | Allocations: 986969)
+
+
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/models/user.rb:3)
+  [1m[36mCart Load (0.7ms)[0m  [1m[34mSELECT "carts".* FROM "carts"[0m
+Started POST "/create_product" for 127.0.0.1 at 2023-10-29 17:14:28 +0300
+  
+ActionController::RoutingError (No route matches [POST] "/create_product"):
+  
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/models/user.rb:3)
+Started POST "/create_product" for 127.0.0.1 at 2023-10-29 17:15:43 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [POST] "/create_product"):
+  
+Started POST "/create_product" for 127.0.0.1 at 2023-10-29 17:21:20 +0300
+  
+ActionController::RoutingError (No route matches [POST] "/create_product"):
+  
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/models/user.rb:3)
+Started POST "/create_product" for 127.0.0.1 at 2023-10-29 17:22:00 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/controllers/application_controller.rb:1)
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New product", "description"=>"the new products", "price"=>"30.50$", "size"=>"Medium", "stock_quantity"=>"2", "brand"=>"thrifted", "color"=>"Red", "category_id"=>1}}
+Filter chain halted as :require_admin rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 505)
+
+
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/models/user.rb:3)
+Started POST "/create_product" for 127.0.0.1 at 2023-10-29 17:22:25 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/controllers/application_controller.rb:1)
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New product", "description"=>"the new products", "price"=>"30.50$", "size"=>"Medium", "stock_quantity"=>"2", "brand"=>"thrifted", "color"=>"Red", "category_id"=>1}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaul@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+Filter chain halted as :require_admin rendered or redirected
+Completed 401 Unauthorized in 229ms (Views: 0.4ms | ActiveRecord: 11.0ms | Allocations: 14642)
+
+
+Started POST "/products/create_product" for 127.0.0.1 at 2023-10-29 17:25:25 +0300
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"name"=>"New product", "description"=>"the new products", "price"=>"30.50$", "size"=>"Medium", "stock_quantity"=>"2", "brand"=>"thrifted", "color"=>"Red", "category_id"=>1}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "markpaul@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:42:in `require_admin'
+Filter chain halted as :require_admin rendered or redirected
+Completed 401 Unauthorized in 5ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1072)
+
+
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/models/user.rb:3)
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (5016.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "skyva_api"[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/models/user.rb:3)
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (358.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "skyva_api"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "skyva_api"[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/models/user.rb:3)
+  [1m[35m (155.7ms)[0m  [1m[35mCREATE DATABASE "skyva_api" ENCODING = 'unicode'[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE DATABASE "skyva_api" ENCODING = 'unicode'[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/models/user.rb:3)
+  [1m[35m (86.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (87.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3422183495574815895)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseTokenAuthCreateUsers (20230819204134)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (75.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "provider" character varying DEFAULT 'email' NOT NULL, "uid" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "allow_password_change" boolean DEFAULT FALSE, "remember_created_at" timestamp(6), "confirmation_token" character varying, "confirmed_at" timestamp(6), "confirmation_sent_at" timestamp(6), "unconfirmed_email" character varying, "name" character varying, "nickname" character varying, "image" character varying, "email" character varying, "tokens" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (39.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (39.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_uid_and_provider" ON "users" ("uid", "provider")[0m
+  [1m[35m (40.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (23.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230819204134"]]
+  [1m[36mTRANSACTION (17.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddRoleToUsers (20230821020342)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "role" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230821020342"]]
+  [1m[36mTRANSACTION (9.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePosts (20230821021958)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (72.9ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying, "content" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230821021958"]]
+  [1m[36mTRANSACTION (16.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActiveStorageTables (20230821023831)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (114.7ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "service_name" character varying NOT NULL, "byte_size" bigint NOT NULL, "checksum" character varying, "created_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (40.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (81.6ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (57.2ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (57.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (81.9ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" bigserial primary key, "blob_id" bigint NOT NULL, "variation_digest" character varying NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (43.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230821023831"]]
+  [1m[36mTRANSACTION (6.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCategories (20230928093441)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (64.9ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "name" character varying, "description" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230928093441"]]
+  [1m[36mTRANSACTION (18.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOrders (20230928093450)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (65.4ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "user_id" bigint NOT NULL, "status" character varying, "total_amount" decimal, "shipping_address" text, "payment_details" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_f868b47f6a"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (30.7ms)[0m  [1m[35mCREATE INDEX "index_orders_on_user_id" ON "orders" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230928093450"]]
+  [1m[36mTRANSACTION (22.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOrderItems (20230928093507)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (59.6ms)[0m  [1m[35mCREATE TABLE "order_items" ("id" bigserial primary key, "order_id" bigint NOT NULL, "product_id" bigint NOT NULL, "quantity" integer, "price" decimal, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_e3cb28f071"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+, CONSTRAINT "fk_rails_f1a29ddd47"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(3422183495574815895)[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/models/user.rb:3)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3422183495574815895)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateProducts (20230928093423)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (77.3ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "name" character varying, "description" text, "price" decimal, "size" character varying, "color" character varying, "brand" character varying, "stock_quantity" integer, "category_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_fb915499a4"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+)[0m
+  [1m[35m (38.3ms)[0m  [1m[35mCREATE INDEX "index_products_on_category_id" ON "products" ("category_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230928093423"]]
+  [1m[36mTRANSACTION (15.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOrderItems (20230928093507)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (59.6ms)[0m  [1m[35mCREATE TABLE "order_items" ("id" bigserial primary key, "order_id" bigint NOT NULL, "product_id" bigint NOT NULL, "quantity" integer, "price" decimal, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_e3cb28f071"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+, CONSTRAINT "fk_rails_f1a29ddd47"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  [1m[35m (47.3ms)[0m  [1m[35mCREATE INDEX "index_order_items_on_order_id" ON "order_items" ("order_id")[0m
+  [1m[35m (39.9ms)[0m  [1m[35mCREATE INDEX "index_order_items_on_product_id" ON "order_items" ("product_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230928093507"]]
+  [1m[36mTRANSACTION (13.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCarts (20230928093648)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (35.6ms)[0m  [1m[35mCREATE TABLE "carts" ("id" bigserial primary key, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_ea59a35211"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (31.2ms)[0m  [1m[35mCREATE INDEX "index_carts_on_user_id" ON "carts" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230928093648"]]
+  [1m[36mTRANSACTION (13.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAddresses (20230928093657)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (84.4ms)[0m  [1m[35mCREATE TABLE "addresses" ("id" bigserial primary key, "user_id" bigint NOT NULL, "address_type" character varying, "street" character varying, "city" character varying, "state" character varying, "postal_code" character varying, "country" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_48c9e0c5a2"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (39.1ms)[0m  [1m[35mCREATE INDEX "index_addresses_on_user_id" ON "addresses" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230928093657"]]
+  [1m[36mTRANSACTION (14.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateReceipts (20230928094034)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (36.4ms)[0m  [1m[35mCREATE TABLE "receipts" ("id" bigserial primary key, "order_id" bigint NOT NULL, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_de8c1572cc"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+, CONSTRAINT "fk_rails_b2d4d3fa14"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (31.6ms)[0m  [1m[35mCREATE INDEX "index_receipts_on_order_id" ON "receipts" ("order_id")[0m
+  [1m[35m (31.4ms)[0m  [1m[35mCREATE INDEX "index_receipts_on_user_id" ON "receipts" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230928094034"]]
+  [1m[36mTRANSACTION (22.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBrands (20231002082120)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (70.3ms)[0m  [1m[35mCREATE TABLE "brands" ("id" bigserial primary key, "name" character varying, "description" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20231002082120"]]
+  [1m[36mTRANSACTION (12.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddCartReferenceToOrderItems (20231002130233)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "order_items" ADD "cart_id" bigint NOT NULL[0m
+  [1m[35m (35.5ms)[0m  [1m[35mCREATE INDEX "index_order_items_on_cart_id" ON "order_items" ("cart_id")[0m
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "order_items" ADD CONSTRAINT "fk_rails_59f7f23852"
+FOREIGN KEY ("cart_id")
+  REFERENCES "carts" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20231002130233"]]
+  [1m[36mTRANSACTION (16.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddCartReferenceToOrders (20231010093453)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT "carts".* FROM "carts" ORDER BY "carts"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "orders" ADD "cart_id" bigint NOT NULL[0m
+  [1m[35m (54.2ms)[0m  [1m[35mCREATE INDEX "index_orders_on_cart_id" ON "orders" ("cart_id")[0m
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "orders" ADD CONSTRAINT "fk_rails_5cdf0e0ad4"
+FOREIGN KEY ("cart_id")
+  REFERENCES "carts" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20231010093453"]]
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-10-29 14:29:20.265019"], ["updated_at", "2023-10-29 14:29:20.265019"]]
+  [1m[36mTRANSACTION (10.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(3422183495574815895)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/models/user.rb:3)
+Started POST "/auth" for 127.0.0.1 at 2023-10-29 17:30:19 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/controllers/application_controller.rb:1)
+Processing by Auth::RegistrationsController#create as */*
+  Parameters: {"email"=>"markpaul@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:21:in `create'
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "markpaul@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+  ↳ app/controllers/auth/registrations_controller.rb:21:in `create'
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["uid", "markpaul@gmail.com"], ["encrypted_password", "[FILTERED]"], ["email", "markpaul@gmail.com"], ["created_at", "2023-10-29 14:30:22.349437"], ["updated_at", "2023-10-29 14:30:22.349437"]]
+  ↳ app/controllers/auth/registrations_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/auth/registrations_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:24:in `block in create'
+  [1m[36mCart Create (1.2ms)[0m  [1m[32mINSERT INTO "carts" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2023-10-29 14:30:22.398669"], ["updated_at", "2023-10-29 14:30:22.398669"]]
+  ↳ app/controllers/auth/registrations_controller.rb:24:in `block in create'
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/auth/registrations_controller.rb:24:in `block in create'
+Completed 500 Internal Server Error in 2584ms (ActiveRecord: 30.4ms | Allocations: 996412)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'admin' for User.
+
+          raise UnknownAttributeError.new(self, k.to_s)
+          ^^^^^):
+  
+app/controllers/auth/registrations_controller.rb:28:in `block in create'
+app/controllers/auth/registrations_controller.rb:21:in `create'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/models/user.rb:3)
+Started POST "/auth" for 127.0.0.1 at 2023-10-29 17:35:19 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/controllers/application_controller.rb:1)
+Processing by Auth::RegistrationsController#create as */*
+  Parameters: {"email"=>"markpaul@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:39:in `create'
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "markpaul@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+  ↳ app/controllers/auth/registrations_controller.rb:39:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/auth/registrations_controller.rb:39:in `create'
+Completed 422 Unprocessable Entity in 2620ms (Views: 0.6ms | ActiveRecord: 13.3ms | Allocations: 986977)
+
+
+Started POST "/auth" for 127.0.0.1 at 2023-10-29 17:35:34 +0300
+Processing by Auth::RegistrationsController#create as */*
+  Parameters: {"email"=>"markpaul1@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:39:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "markpaul1@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+  ↳ app/controllers/auth/registrations_controller.rb:39:in `create'
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["uid", "markpaul1@gmail.com"], ["encrypted_password", "[FILTERED]"], ["email", "markpaul1@gmail.com"], ["created_at", "2023-10-29 14:35:34.336038"], ["updated_at", "2023-10-29 14:35:34.336038"]]
+  ↳ app/controllers/auth/registrations_controller.rb:39:in `create'
+  [1m[36mTRANSACTION (16.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/auth/registrations_controller.rb:39:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:42:in `block in create'
+  [1m[36mCart Create (1.7ms)[0m  [1m[32mINSERT INTO "carts" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 2], ["created_at", "2023-10-29 14:35:34.400659"], ["updated_at", "2023-10-29 14:35:34.400659"]]
+  ↳ app/controllers/auth/registrations_controller.rb:42:in `block in create'
+  [1m[36mTRANSACTION (9.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/auth/registrations_controller.rb:42:in `block in create'
+  [1m[36mUser Count (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ app/controllers/auth/registrations_controller.rb:45:in `block in create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:39:in `create'
+  [1m[36mUser Update (1.1ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "[FILTERED]"], ["updated_at", "2023-10-29 14:35:34.477611"], ["id", 2]]
+  ↳ app/controllers/auth/registrations_controller.rb:39:in `create'
+  [1m[36mTRANSACTION (6.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/auth/registrations_controller.rb:39:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/auth/registrations_controller.rb:39:in `create'
+Completed 200 OK in 382ms (Views: 0.4ms | ActiveRecord: 45.1ms | Allocations: 17106)
+
+
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/models/user.rb:3)
+Started POST "/auth" for 127.0.0.1 at 2023-10-29 17:43:03 +0300
+Processing by Auth::RegistrationsController#create as */*
+  Parameters: {"email"=>"markpaul1@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:39:in `create'
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "markpaul1@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+  ↳ app/controllers/auth/registrations_controller.rb:39:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/auth/registrations_controller.rb:39:in `create'
+Completed 422 Unprocessable Entity in 270ms (Views: 0.5ms | ActiveRecord: 14.9ms | Allocations: 6385)
+
+
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/models/user.rb:3)
+Started POST "/auth" for 127.0.0.1 at 2023-10-29 17:43:22 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/controllers/application_controller.rb:1)
+Processing by Auth::RegistrationsController#create as */*
+  Parameters: {"email"=>"markpaul1@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:39:in `create'
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "markpaul1@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+  ↳ app/controllers/auth/registrations_controller.rb:39:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/auth/registrations_controller.rb:39:in `create'
+Completed 422 Unprocessable Entity in 2638ms (Views: 0.6ms | ActiveRecord: 12.1ms | Allocations: 986894)
+
+
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/models/user.rb:3)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/models/user.rb:3)
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (5007.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "skyva_api"[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/models/user.rb:3)
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (339.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "skyva_api"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "skyva_api"[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/models/user.rb:3)
+  [1m[35m (135.4ms)[0m  [1m[35mCREATE DATABASE "skyva_api" ENCODING = 'unicode'[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE DATABASE "skyva_api" ENCODING = 'unicode'[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/models/user.rb:3)
+  [1m[35m (155.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (104.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3422183495574815895)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseTokenAuthCreateUsers (20230819204134)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (82.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "provider" character varying DEFAULT 'email' NOT NULL, "uid" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "allow_password_change" boolean DEFAULT FALSE, "remember_created_at" timestamp(6), "confirmation_token" character varying, "confirmed_at" timestamp(6), "confirmation_sent_at" timestamp(6), "unconfirmed_email" character varying, "name" character varying, "nickname" character varying, "image" character varying, "email" character varying, "tokens" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (38.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (39.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_uid_and_provider" ON "users" ("uid", "provider")[0m
+  [1m[35m (58.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (39.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230819204134"]]
+  [1m[36mTRANSACTION (20.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddRoleToUsers (20230821020342)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "role" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230821020342"]]
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePosts (20230821021958)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (108.8ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying, "content" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230821021958"]]
+  [1m[36mTRANSACTION (23.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActiveStorageTables (20230821023831)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (76.9ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "service_name" character varying NOT NULL, "byte_size" bigint NOT NULL, "checksum" character varying, "created_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (31.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (64.9ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (48.4ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (40.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (64.6ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" bigserial primary key, "blob_id" bigint NOT NULL, "variation_digest" character varying NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (31.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230821023831"]]
+  [1m[36mTRANSACTION (19.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCategories (20230928093441)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (105.0ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "name" character varying, "description" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230928093441"]]
+  [1m[36mTRANSACTION (17.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOrders (20230928093450)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (96.9ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "user_id" bigint NOT NULL, "status" character varying, "total_amount" decimal, "shipping_address" text, "payment_details" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_f868b47f6a"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (39.6ms)[0m  [1m[35mCREATE INDEX "index_orders_on_user_id" ON "orders" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230928093450"]]
+  [1m[36mTRANSACTION (17.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOrderItems (20230928093507)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (90.4ms)[0m  [1m[35mCREATE TABLE "order_items" ("id" bigserial primary key, "order_id" bigint NOT NULL, "product_id" bigint NOT NULL, "quantity" integer, "price" decimal, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_e3cb28f071"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+, CONSTRAINT "fk_rails_f1a29ddd47"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(3422183495574815895)[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/models/user.rb:3)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3422183495574815895)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateProducts (20230928093423)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (106.4ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "name" character varying, "description" text, "price" decimal, "size" character varying, "color" character varying, "brand" character varying, "stock_quantity" integer, "category_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_fb915499a4"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+)[0m
+  [1m[35m (46.2ms)[0m  [1m[35mCREATE INDEX "index_products_on_category_id" ON "products" ("category_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230928093423"]]
+  [1m[36mTRANSACTION (13.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOrderItems (20230928093507)
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (94.2ms)[0m  [1m[35mCREATE TABLE "order_items" ("id" bigserial primary key, "order_id" bigint NOT NULL, "product_id" bigint NOT NULL, "quantity" integer, "price" decimal, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_e3cb28f071"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+, CONSTRAINT "fk_rails_f1a29ddd47"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  [1m[35m (72.7ms)[0m  [1m[35mCREATE INDEX "index_order_items_on_order_id" ON "order_items" ("order_id")[0m
+  [1m[35m (40.1ms)[0m  [1m[35mCREATE INDEX "index_order_items_on_product_id" ON "order_items" ("product_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230928093507"]]
+  [1m[36mTRANSACTION (13.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCarts (20230928093648)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (52.4ms)[0m  [1m[35mCREATE TABLE "carts" ("id" bigserial primary key, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_ea59a35211"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (40.6ms)[0m  [1m[35mCREATE INDEX "index_carts_on_user_id" ON "carts" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230928093648"]]
+  [1m[36mTRANSACTION (13.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAddresses (20230928093657)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (111.7ms)[0m  [1m[35mCREATE TABLE "addresses" ("id" bigserial primary key, "user_id" bigint NOT NULL, "address_type" character varying, "street" character varying, "city" character varying, "state" character varying, "postal_code" character varying, "country" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_48c9e0c5a2"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (31.9ms)[0m  [1m[35mCREATE INDEX "index_addresses_on_user_id" ON "addresses" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230928093657"]]
+  [1m[36mTRANSACTION (13.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateReceipts (20230928094034)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (55.3ms)[0m  [1m[35mCREATE TABLE "receipts" ("id" bigserial primary key, "order_id" bigint NOT NULL, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_de8c1572cc"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+, CONSTRAINT "fk_rails_b2d4d3fa14"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (30.6ms)[0m  [1m[35mCREATE INDEX "index_receipts_on_order_id" ON "receipts" ("order_id")[0m
+  [1m[35m (58.1ms)[0m  [1m[35mCREATE INDEX "index_receipts_on_user_id" ON "receipts" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230928094034"]]
+  [1m[36mTRANSACTION (18.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBrands (20231002082120)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (89.2ms)[0m  [1m[35mCREATE TABLE "brands" ("id" bigserial primary key, "name" character varying, "description" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20231002082120"]]
+  [1m[36mTRANSACTION (17.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddCartReferenceToOrderItems (20231002130233)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "order_items" ADD "cart_id" bigint NOT NULL[0m
+  [1m[35m (53.2ms)[0m  [1m[35mCREATE INDEX "index_order_items_on_cart_id" ON "order_items" ("cart_id")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "order_items" ADD CONSTRAINT "fk_rails_59f7f23852"
+FOREIGN KEY ("cart_id")
+  REFERENCES "carts" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20231002130233"]]
+  [1m[36mTRANSACTION (15.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddCartReferenceToOrders (20231010093453)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT "carts".* FROM "carts" ORDER BY "carts"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "orders" ADD "cart_id" bigint NOT NULL[0m
+  [1m[35m (45.2ms)[0m  [1m[35mCREATE INDEX "index_orders_on_cart_id" ON "orders" ("cart_id")[0m
+  [1m[35m (2.0ms)[0m  [1m[35mALTER TABLE "orders" ADD CONSTRAINT "fk_rails_5cdf0e0ad4"
+FOREIGN KEY ("cart_id")
+  REFERENCES "carts" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20231010093453"]]
+  [1m[36mTRANSACTION (12.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-10-29 14:54:05.191911"], ["updated_at", "2023-10-29 14:54:05.191911"]]
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(3422183495574815895)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/models/user.rb:3)
+Started POST "/auth" for 127.0.0.1 at 2023-10-29 17:54:35 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/controllers/application_controller.rb:1)
+Processing by Auth::RegistrationsController#create as */*
+  Parameters: {"email"=>"markpaul@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:39:in `create'
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "markpaul@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+  ↳ app/controllers/auth/registrations_controller.rb:39:in `create'
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["uid", "markpaul@gmail.com"], ["encrypted_password", "[FILTERED]"], ["email", "markpaul@gmail.com"], ["created_at", "2023-10-29 14:54:37.663409"], ["updated_at", "2023-10-29 14:54:37.663409"]]
+  ↳ app/controllers/auth/registrations_controller.rb:39:in `create'
+  [1m[36mTRANSACTION (16.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/auth/registrations_controller.rb:39:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:42:in `block in create'
+  [1m[36mCart Create (1.7ms)[0m  [1m[32mINSERT INTO "carts" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2023-10-29 14:54:37.720177"], ["updated_at", "2023-10-29 14:54:37.720177"]]
+  ↳ app/controllers/auth/registrations_controller.rb:42:in `block in create'
+  [1m[36mTRANSACTION (8.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/auth/registrations_controller.rb:42:in `block in create'
+  [1m[36mUser Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ app/controllers/auth/registrations_controller.rb:45:in `block in create'
+Completed 500 Internal Server Error in 2444ms (ActiveRecord: 45.6ms | Allocations: 1000195)
+
+
+  
+NameError (undefined local variable or method `user' for #<Auth::RegistrationsController:0x0000000000a370>
+
+                  user.update(role: 'admin')
+                  ^^^^
+Did you mean?  super):
+  
+app/controllers/auth/registrations_controller.rb:46:in `block in create'
+app/controllers/auth/registrations_controller.rb:39:in `create'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/models/user.rb:3)
+Started POST "/auth" for 127.0.0.1 at 2023-10-29 17:58:34 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva/skyva-api/app/controllers/application_controller.rb:1)
+Processing by Auth::RegistrationsController#create as */*
+  Parameters: {"email"=>"markpaul@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/auth/registrations_controller.rb:39:in `create'
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."provider" = $2 LIMIT $3[0m  [["email", "markpaul@gmail.com"], ["provider", "email"], ["LIMIT", 1]]
+  ↳ app/controllers/auth/registrations_controller.rb:39:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/auth/registrations_controller.rb:39:in `create'
+Completed 422 Unprocessable Entity in 2617ms (Views: 0.9ms | ActiveRecord: 13.0ms | Allocations: 986977)
+
+
+>>>>>>> ceb27d7649c9a9e5a144205fa3b3a48970921d3f

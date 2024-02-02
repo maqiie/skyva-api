@@ -34,6 +34,7 @@ Rails.application.routes.draw do
       get 'products', to: 'categories#products_by_category'
     end
   end
+  post 'create_product', to: 'products#create', as: 'create_product'
 
   # Authentication routes using Devise Token Auth
  

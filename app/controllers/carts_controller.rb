@@ -98,8 +98,6 @@ current_cart = current_user.current_cart
   
     # ...
 
-# Start a transaction
-# Start a transaction
 ActiveRecord::Base.transaction do
   logger.info "Starting transaction..."
 
@@ -121,12 +119,6 @@ ActiveRecord::Base.transaction do
   # ...
 end
 ...
-
- 
-
-
-
-# ...
 
 # Save current_user and current_cart
 unless current_user.save && current_cart.save

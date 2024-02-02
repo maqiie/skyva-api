@@ -13174,3 +13174,163 @@ Read more about how to migrate at: https://guides.rubyonrails.org/active_record_
  (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
   [1m[36mOrderItem Load (0.6ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items"[0m
   [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  [1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT "carts".* FROM "carts"[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 16:23:54 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by CartsController#add_to_cart as */*
+  Parameters: {"product_id"=>2, "quantity"=>2, "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "user1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:26:in `add_to_cart'
+  [1m[36mOrderItem Load (0.3ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."cart_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["cart_id", 3], ["product_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:36:in `add_to_cart'
+Starting transaction...
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:54:in `block in add_to_cart'
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."cart_id" = $2 AND "orders"."status" = $3 LIMIT $4[0m  [["user_id", 3], ["cart_id", 3], ["status", "open"], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:54:in `block in add_to_cart'
+Found or created order: #<Order id: 2, user_id: 3, status: "open", total_amount: nil, shipping_address: nil, payment_details: nil, created_at: "2024-02-02 13:16:51.921362000 +0000", updated_at: "2024-02-02 13:16:51.921362000 +0000", cart_id: 3>
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:69:in `block in add_to_cart'
+Errors: ["Order must exist"]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/carts_controller.rb:50:in `add_to_cart'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:88:in `add_to_cart'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:88:in `add_to_cart'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/carts_controller.rb:88:in `add_to_cart'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 1210ms (Views: 0.2ms | ActiveRecord: 16.0ms | Allocations: 838179)
+
+
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 16:26:57 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by CartsController#add_to_cart as */*
+  Parameters: {"product_id"=>2, "quantity"=>2, "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "user1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:26:in `add_to_cart'
+  [1m[36mOrderItem Load (0.2ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."cart_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["cart_id", 3], ["product_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:38:in `add_to_cart'
+Order Item created: #<OrderItem id: nil, order_id: nil, product_id: 2, quantity: 2, price: nil, created_at: nil, updated_at: nil, cart_id: 3>
+Completed 500 Internal Server Error in 133ms (ActiveRecord: 11.1ms | Allocations: 94005)
+
+
+  
+NameError (undefined local variable or method `order' for #<CartsController:0x0000000000a758>
+Did you mean?  order_url):
+  
+app/controllers/carts_controller.rb:52:in `add_to_cart'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 16:29:19 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by CartsController#add_to_cart as */*
+  Parameters: {"product_id"=>2, "quantity"=>2, "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "user1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:26:in `add_to_cart'
+  [1m[36mOrderItem Load (0.2ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."cart_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["cart_id", 3], ["product_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:38:in `add_to_cart'
+Order Item created: #<OrderItem id: nil, order_id: nil, product_id: 2, quantity: 2, price: nil, created_at: nil, updated_at: nil, cart_id: 3>
+Completed 500 Internal Server Error in 135ms (ActiveRecord: 10.1ms | Allocations: 94010)
+
+
+  
+NameError (undefined local variable or method `order' for #<CartsController:0x0000000000a758>
+Did you mean?  order_url):
+  
+app/controllers/carts_controller.rb:52:in `add_to_cart'
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 16:29:34 +0300
+  
+SyntaxError (/home/markpaul/projects/skyva-api/app/controllers/carts_controller.rb:128: syntax error, unexpected `end'):
+  
+app/controllers/carts_controller.rb:128: syntax error, unexpected `end'
+app/controllers/carts_controller.rb:128: syntax error, unexpected `end'
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+Started POST "/carts/1/add_to_cart" for 127.0.0.1 at 2024-02-02 16:30:01 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from <top (required)> at /home/markpaul/projects/skyva-api/app/controllers/application_controller.rb:1)
+Processing by CartsController#add_to_cart as */*
+  Parameters: {"product_id"=>2, "quantity"=>2, "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "user1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `set_current_cart'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:79:in `add_to_cart'
+  [1m[36mOrderItem Load (0.2ms)[0m  [1m[34mSELECT "order_items".* FROM "order_items" WHERE "order_items"."cart_id" = $1 AND "order_items"."product_id" = $2 LIMIT $3[0m  [["cart_id", 3], ["product_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:89:in `add_to_cart'
+Starting transaction...
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:107:in `block in add_to_cart'
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1 AND "orders"."cart_id" = $2 AND "orders"."status" = $3 LIMIT $4[0m  [["user_id", 3], ["cart_id", 3], ["status", "open"], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:107:in `block in add_to_cart'
+Found or created order: #<Order id: 2, user_id: 3, status: "open", total_amount: nil, shipping_address: nil, payment_details: nil, created_at: "2024-02-02 13:16:51.921362000 +0000", updated_at: "2024-02-02 13:16:51.921362000 +0000", cart_id: 3>
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:113:in `block in add_to_cart'
+Errors: ["Order must exist"]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/carts_controller.rb:103:in `add_to_cart'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:126:in `add_to_cart'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:126:in `add_to_cart'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/carts_controller.rb:126:in `add_to_cart'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 1220ms (Views: 0.2ms | ActiveRecord: 14.7ms | Allocations: 838196)
+
+
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <top (required)> at /home/markpaul/projects/skyva-api/app/models/user.rb:3)
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m

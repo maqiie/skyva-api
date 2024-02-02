@@ -14,87 +14,18 @@ class CartsController < ApplicationController
   end
    
 
-  
-  def add_to_cart
-    product_id = params[:product_id]
-    quantity = params[:quantity]
-  
-    # Find the product
-    product = Product.find_by(id: product_id)
-  
-    unless product
-      render json: { error: "Product not found." }, status: :not_found
-      return
-    end
-  
-    unless current_user
-      render json: { error: "User not found." }, status: :not_found
-      return
-    end
-  
-    current_cart = current_user.current_cart
-  
-    unless current_cart
-      current_cart = current_user.create_current_cart
-    end
-  
-    # Check if the product is already in the cart
-    order_item = current_cart.order_items.find_by(product: product)
-  
-    if order_item
-      # If the product is already in the cart, update the quantity
-      order_item.quantity += quantity
-    else
-      # If the product is not in the cart, create a new OrderItem
-      order_item = OrderItem.new(product: product, quantity: quantity, cart: current_cart)
-    end
-  
-    # Start a transaction
-    ActiveRecord::Base.transaction do
-      # Find or create an open order associated with the current cart
-      order = current_cart.orders.find_or_create_by(status: 'open')
-  
-      # Associate the order_item with the order
-      order_item.order = order
-  
-      # Attempt to save the order_item
-      unless order_item.save
-        errors = order_item.errors.full_messages
-        raise ActiveRecord::Rollback
-        render json: { error: "There was an error adding the product to the cart", errors: errors }, status: :unprocessable_entity
-        return
-      end
-  
-      # Save current_user and current_cart
-      unless current_user.save && current_cart.save
-        errors = []
-        errors << "User is invalid" if current_user.errors.present?
-        errors << "Cart is invalid" if current_cart.errors.present?
-        raise ActiveRecord::Rollback
-        render json: { error: "There was an error adding the product to the cart", errors: errors }, status: :unprocessable_entity
-        return
-      end
-    end
-  
-    # Check if order_item is defined and has an id
-    if order_item && order_item.id
-      render json: { message: "Product added to cart successfully", cart_id: current_user.current_cart.id, order_item_id: order_item.id }
-    else
-      render json: { error: "There was an error adding the product to the cart" }, status: :unprocessable_entity
-    end
-  end
-  
+   
 
-  
- 
 
-  
+
+
+
   def get_cart
     # Replace this with your actual logic to retrieve cart contents
     @cart_contents = Cart.find(params[:id])  # Example logic, adjust as needed
 
     respond_to do |format|
-      format.json { render json: @cart_contents }
+      format.jsonz { render json: @cart_contents }
       # You can also render an HTML view if needed
       # format.html { render :show }
     end

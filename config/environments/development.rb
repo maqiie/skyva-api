@@ -29,6 +29,8 @@ config.action_mailer.smtp_settings = {
   config.active_storage.service = :local
 
 
+
+
   config.eager_load = false
 
   # Show full error reports.

@@ -43,4 +43,8 @@ Rails.application.routes.draw do
   }
   # devise_for :users
 
+
+  # config/routes.rb
+mount ActionCable.server => "/cable"
+
 end

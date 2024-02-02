@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   has_one :cart
 
 
+  attribute :admin, :boolean
 
 
 end

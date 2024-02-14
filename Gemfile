@@ -9,6 +9,16 @@ gem "jsonapi-serializer"
 gem 'cancancan'
 gem 'pg'
 gem 'faker'
+gem 'redis'
+gem 'cable_ready'
+# Gemfile
+gem 'actioncable'
+
+
+
+
+
+
 
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"

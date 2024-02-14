@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   resources :receipts, only: [:create]
   resources :addresses, except: [:edit]
 
+
+
+mount ActionCable.server => '/cable'
+
   # Carts routes
   resources :carts, only: [:show, :update, :destroy, :create] do
     member do
@@ -37,7 +41,10 @@ Rails.application.routes.draw do
   post 'create_product', to: 'products#create', as: 'create_product'
 
   # Authentication routes using Devise Token Auth
- 
+
+  #getcurrentuser
+  get '/current_user', to: 'application#index', as: 'current_user'
+
 
   mount_devise_token_auth_for 'User', at: 'auth', controllers: {
     registrations: 'auth/registrations'
@@ -46,6 +53,7 @@ Rails.application.routes.draw do
 
 
   # config/routes.rb
-mount ActionCable.server => "/cable"
+
+  
 
 end

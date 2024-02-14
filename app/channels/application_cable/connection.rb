@@ -18,3 +18,7 @@ module ApplicationCable
     end
   end
 end
+# module ApplicationCable
+#   class Connection < ActionCable::Connection::Base
+#   end
+# end

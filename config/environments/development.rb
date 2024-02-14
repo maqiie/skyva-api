@@ -28,8 +28,10 @@ config.action_mailer.smtp_settings = {
 
   config.active_storage.service = :local
 
+  config.action_cable.url = "ws://localhost:3000/cable"
 
-
+  config.action_cable.log_tags = [:action_cable, :subscribers, :channel, :uuid]
+  config.action_cable.logger = Logger.new(STDOUT)
 
   config.eager_load = false
 
@@ -75,6 +77,7 @@ config.action_mailer.smtp_settings = {
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
+ 
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true

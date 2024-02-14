@@ -68,8 +68,15 @@ GEM
       tzinfo (~> 2.0)
     bcrypt (3.1.19)
     builder (3.2.4)
+    cable_ready (5.0.3)
+      actionpack (>= 5.2)
+      actionview (>= 5.2)
+      activesupport (>= 5.2)
+      railties (>= 5.2)
+      thread-local (>= 1.1.0)
     cancancan (3.5.0)
     concurrent-ruby (1.2.2)
+    connection_pool (2.4.1)
     crass (1.0.6)
     date (3.3.3)
     debug (1.8.0)
@@ -160,6 +167,10 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    redis (5.0.8)
+      redis-client (>= 0.17.0)
+    redis-client (0.19.1)
+      connection_pool
     reline (0.3.7)
       io-console (~> 0.5)
     responders (3.1.0)
@@ -174,6 +185,7 @@ GEM
       sprockets (>= 3.0.0)
     sqlite3 (1.6.3-x86_64-linux)
     thor (1.2.2)
+    thread-local (1.1.0)
     timeout (0.4.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
@@ -188,6 +200,8 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  actioncable
+  cable_ready
   cancancan
   debug
   devise
@@ -198,6 +212,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.7)
+  redis
   sprockets-rails
   sqlite3 (~> 1.4)
   tzinfo-data

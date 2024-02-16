@@ -7,7 +7,7 @@ require 'faker'
 Category.create(name: 'Clothes', description: 'Clothing category')
 Category.create(name: 'Shoes', description: 'Footwear category')
 Category.create(name: 'Jewelry', description: 'Jewelry category')
-Category.create(name: 'Men', description: 'Men\'s clothing')
+Category.create(name: 'Cosmetics', description: 'cosmetics\'s category')
 Category.create(name: 'Women', description: 'Women\'s clothing')
 
 # Create random brands

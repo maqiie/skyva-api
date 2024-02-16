@@ -242,109 +242,206 @@ class CartsController < ApplicationController
 #   # Product added successfully, return order_item_id
 #   render json: { message: "Product added to cart successfully", cart_id: current_cart.id, order_item_id: order_item.id }
 # end
+# def add_to_cart
+#   product_id = params[:product_id]
+#   quantity = params[:quantity].to_i
+
+#   # Make sure the product exists
+#   product = Product.find_by(id: product_id)
+#   unless product
+#     render json: { error: "Product not found" }, status: :unprocessable_entity
+#     return
+#   end
+
+#   # Use the cart associated with the user from the beginning
+#   current_cart = current_user.current_cart
+
+#   # Find or initialize an open order associated with the current cart and user
+#   order = current_user.orders.find_or_initialize_by(cart: current_cart, status: 'open')
+
+#   # Check if the product is already in the cart
+#   order_item = order.order_items.find_or_initialize_by(product: product)
+
+#   # If the product is already in the cart, update the quantity
+#   # order_item.quantity += quantity
+# # If the product is already in the cart, update the quantity
+# order_item.quantity ||= 0
+# order_item.quantity += quantity
+
+#   # Start a transaction
+#   ActiveRecord::Base.transaction do
+#     logger.info "Starting transaction..."
+
+#     # # Save the order and the order_item
+#     # unless order.save && order_item.save
+#     #   errors = (order.errors.full_messages + order_item.errors.full_messages).uniq
+#     #   logger.error "Errors: #{errors}"
+#     #   raise ActiveRecord::Rollback
+#     #   render json: { error: "There was an error adding the product to the cart", errors: errors }, status: :unprocessable_entity
+#     #   return
+#     # end
+#     unless order.save && order_item.save
+#       errors = (order.errors.full_messages + order_item.errors.full_messages).uniq
+#       logger.error "Errors: #{errors}"
+#       raise ActiveRecord::Rollback
+#       render json: { error: "There was an error adding the product to the cart", errors: errors }, status: :unprocessable_entity
+#       return
+#     end
+    
+
+#     # Save the user and cart inside the transaction block
+#     unless current_user.save && current_cart.save
+#       errors = []
+#       errors << "User is invalid: #{current_user.errors.full_messages.join(', ')}" if current_user.errors.present?
+#       errors << "Cart is invalid: #{current_cart.errors.full_messages.join(', ')}" if current_cart.errors.present?
+#       logger.error "User and Cart validation errors: #{errors.join(', ')}"
+#       raise ActiveRecord::Rollback
+#       render json: { error: "There was an error adding the product to the cart", errors: errors }, status: :unprocessable_entity
+#       return
+#     end
+
+#     # ...
+#   end
+
+#   # Product added successfully, return order_item_id
+#   render json: { message: "Product added to cart successfully", cart_id: current_cart.id, order_item_id: order_item.id }
+# end
+# def add_to_cart
+#   product_id = params[:product_id]
+#   quantity = params[:quantity].to_i
+
+#   # Make sure the product exists
+#   product = Product.find_by(id: product_id)
+#   unless product
+#     render json: { error: "Product not found" }, status: :unprocessable_entity
+#     return
+#   end
+
+#   # Use the cart associated with the user from the beginning
+#   current_cart = current_user.current_cart
+
+#   # Find or initialize an open order associated with the current cart and user
+#   order = current_user.orders.find_or_initialize_by(cart: current_cart, status: 'open')
+
+#   # Check if the product is already in the cart
+#   order_item = order.order_items.find_or_initialize_by(product: product)
+
+#   # If the product is already in the cart, update the quantity
+#   order_item.quantity ||= 0
+#   order_item.quantity += quantity
+
+#   # Start a transaction
+#   ActiveRecord::Base.transaction do
+#     logger.info "Starting transaction..."
+
+#     # Save the order and the order_item
+#     unless order.save && order_item.save
+#       errors = (order.errors.full_messages + order_item.errors.full_messages).uniq
+#       logger.error "Errors: #{errors.join(', ')}"
+#       raise ActiveRecord::Rollback
+#       return render json: { error: "There was an error adding the product to the cart", errors: errors }, status: :unprocessable_entity
+#     end
+
+#     # Save the user and cart inside the transaction block
+#     unless current_user.save && current_cart.save
+#       errors = []
+#       errors << "User is invalid: #{current_user.errors.full_messages.join(', ')}" if current_user.errors.present?
+#       errors << "Cart is invalid: #{current_cart.errors.full_messages.join(', ')}" if current_cart.errors.present?
+#       logger.error "User and Cart validation errors: #{errors.join(', ')}"
+#       raise ActiveRecord::Rollback
+#       return render json: { error: "There was an error adding the product to the cart", errors: errors }, status: :unprocessable_entity
+#     end
+
+#     # Any other operations within the transaction...
+#   end
+
+#   # Product added successfully, return order_item_id
+#   render json: { message: "Product added to cart successfully", cart_id: current_cart.id, order_item_id: order_item.id }
+# end
+
+# def pay_order
+#   # Assuming you have a payment logic here
+#   order_id = params[:order_id]
+#   order = current_user.orders.find_by(id: order_id, status: 'open')
+
+#   unless order
+#     render json: { error: "Order not found or not in open status" }, status: :unprocessable_entity
+#     return
+#   end
+
+#   # Perform payment logic (update order status, payment details, etc.)
+#   # ...
+
+#   # Close the order
+#   order.update(status: 'paid')
+
+#   render json: { message: "Order paid successfully", order_id: order.id }
+# end
+
+# def complete_order
+#   order_id = params[:order_id]
+#   order = current_user.orders.find_by(id: order_id, status: 'paid')
+
+#   unless order
+#     render json: { error: "Order not found or not in paid status" }, status: :unprocessable_entity
+#     return
+#   end
+
+#   # Perform completion logic (update order status, shipping details, etc.)
+#   # ...
+
+#   # Close the order
+#   order.update(status: 'completed')
+
+#   render json: { message: "Order completed successfully", order_id: order.id }
+# end
+
+
 def add_to_cart
   product_id = params[:product_id]
   quantity = params[:quantity].to_i
 
-  # Make sure the product exists
+  # Step 1: Validate product existence
   product = Product.find_by(id: product_id)
   unless product
-    render json: { error: "Product not found" }, status: :unprocessable_entity
-    return
+    return render json: { error: "Product not found" }, status: :unprocessable_entity
   end
 
-  # Use the cart associated with the user from the beginning
+  # Step 2: Retrieve the user's current cart
   current_cart = current_user.current_cart
 
-  # Find or initialize an open order associated with the current cart and user
-  order = current_user.orders.find_or_initialize_by(cart: current_cart, status: 'open')
+  # Step 3: Find the open order associated with the user's cart
+  order = current_user.orders.find_by(cart: current_cart, status: 'open')
 
-  # Check if the product is already in the cart
-  order_item = order.order_items.find_or_initialize_by(product: product)
-
-  # If the product is already in the cart, update the quantity
-  # order_item.quantity += quantity
-# If the product is already in the cart, update the quantity
-order_item.quantity ||= 0
-order_item.quantity += quantity
-
-  # Start a transaction
-  ActiveRecord::Base.transaction do
-    logger.info "Starting transaction..."
-
-    # # Save the order and the order_item
-    # unless order.save && order_item.save
-    #   errors = (order.errors.full_messages + order_item.errors.full_messages).uniq
-    #   logger.error "Errors: #{errors}"
-    #   raise ActiveRecord::Rollback
-    #   render json: { error: "There was an error adding the product to the cart", errors: errors }, status: :unprocessable_entity
-    #   return
-    # end
-    unless order.save && order_item.save
-      errors = (order.errors.full_messages + order_item.errors.full_messages).uniq
-      logger.error "Errors: #{errors}"
-      raise ActiveRecord::Rollback
-      render json: { error: "There was an error adding the product to the cart", errors: errors }, status: :unprocessable_entity
-      return
-    end
-    
-
-    # Save the user and cart inside the transaction block
-    unless current_user.save && current_cart.save
-      errors = []
-      errors << "User is invalid: #{current_user.errors.full_messages.join(', ')}" if current_user.errors.present?
-      errors << "Cart is invalid: #{current_cart.errors.full_messages.join(', ')}" if current_cart.errors.present?
-      logger.error "User and Cart validation errors: #{errors.join(', ')}"
-      raise ActiveRecord::Rollback
-      render json: { error: "There was an error adding the product to the cart", errors: errors }, status: :unprocessable_entity
-      return
-    end
-
-    # ...
+  # Step 4: If no open order exists, create a new one
+  unless order
+    order = current_user.orders.create(cart: current_cart, status: 'open')
   end
 
-  # Product added successfully, return order_item_id
+  # Step 5: Find or initialize the order item for the product
+  order_item = order.order_items.find_or_initialize_by(product: product)
+  order_item.quantity ||= 0
+  order_item.quantity += quantity
+  order_item.cart = current_cart # Associate order item with the cart
+
+  # Step 6: Handle database operations in a transaction
+  ActiveRecord::Base.transaction do
+    begin
+      order.save!
+      order_item.save!
+      current_user.save!
+      current_cart.save!
+    rescue ActiveRecord::RecordInvalid => e
+      # Rollback transaction if any operation fails
+      logger.error "Error adding product to cart: #{e.message}"
+      raise ActiveRecord::Rollback
+      return render json: { error: "There was an error adding the product to the cart", errors: e.record.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+  # Step 7: Render success response
   render json: { message: "Product added to cart successfully", cart_id: current_cart.id, order_item_id: order_item.id }
 end
-
-def pay_order
-  # Assuming you have a payment logic here
-  order_id = params[:order_id]
-  order = current_user.orders.find_by(id: order_id, status: 'open')
-
-  unless order
-    render json: { error: "Order not found or not in open status" }, status: :unprocessable_entity
-    return
-  end
-
-  # Perform payment logic (update order status, payment details, etc.)
-  # ...
-
-  # Close the order
-  order.update(status: 'paid')
-
-  render json: { message: "Order paid successfully", order_id: order.id }
-end
-
-def complete_order
-  order_id = params[:order_id]
-  order = current_user.orders.find_by(id: order_id, status: 'paid')
-
-  unless order
-    render json: { error: "Order not found or not in paid status" }, status: :unprocessable_entity
-    return
-  end
-
-  # Perform completion logic (update order status, shipping details, etc.)
-  # ...
-
-  # Close the order
-  order.update(status: 'completed')
-
-  render json: { message: "Order completed successfully", order_id: order.id }
-end
-
-
 
   
   # def get_cart

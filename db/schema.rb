@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_29_171916) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_15_113228) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,6 +66,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_29_171916) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "order_id"
+    t.index ["order_id"], name: "index_carts_on_order_id"
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
@@ -120,6 +122,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_29_171916) do
     t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "on_offer"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
@@ -162,6 +165,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_29_171916) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "addresses", "users"
+  add_foreign_key "carts", "orders"
   add_foreign_key "carts", "users"
   add_foreign_key "order_items", "carts"
   add_foreign_key "order_items", "orders"

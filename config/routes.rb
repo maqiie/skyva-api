@@ -5,6 +5,14 @@ Rails.application.routes.draw do
   resources :receipts, only: [:create]
   resources :addresses, except: [:edit]
 
+  namespace :auth do
+    devise_scope :user do
+      get 'registrations/show', to: 'registrations#show'
+    end
+  end
+
+  get '/products/on_offer', to: 'products#on_offer'
+  get '/products/recently_added', to: 'products#recently_added'
 
 
 mount ActionCable.server => '/cable'
@@ -19,7 +27,6 @@ mount ActionCable.server => '/cable'
     end
     get 'get_cart', on: :member
   end
-  
 
   # Order Items and Orders routes
   resources :order_items, only: [:create, :destroy]
@@ -51,8 +58,7 @@ mount ActionCable.server => '/cable'
   }
   # devise_for :users
 
-
-  # config/routes.rb
+  # get '/products/on_offer', to: 'products#on_offer'
 
   
 

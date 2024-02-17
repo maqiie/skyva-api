@@ -6,7 +6,8 @@ class Cart < ApplicationRecord
 
   has_many :order_items
 
- 
+  belongs_to :order, optional: true
+
   def create_current_cart
     if user.current_cart.nil?
       transaction do

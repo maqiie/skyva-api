@@ -64,56 +64,60 @@ end
 
   
   
-  def get_cart
-    cart_id = params[:id]
-    current_cart = Cart.find_by(id: cart_id, user: current_user)
 
-    unless current_cart
-      render json: { error: "Cart not found" }, status: :not_found
-      return
-    end
-
-    # Optional: Output information about the current cart to the console
-    puts "Current Cart: #{current_cart.inspect}"
-
-    cart_data = {
-      id: current_cart.id,
-      user_id: current_cart.user_id,
-      created_at: current_cart.created_at,
-      updated_at: current_cart.updated_at,
-      order_id: current_cart.order_id
-    }
-
-    order_data = current_cart.order&.attributes
-    order_items_data = current_cart.order&.order_items&.map do |order_item|
-      puts "Order Item: #{order_item.inspect}"
-      order_item.attributes.merge(product: order_item.product.attributes)
-    end
-
-    render json: {
-      cart: cart_data,
-      order: order_data,
-      order_items: order_items_data
-    }, include: [:order, :'order.order_items', :'order_items.product']
-end 
-  
-  
-  
   
   def show
     cart_items = current_user.cart.cart_items
     cart_total = calculate_cart_total(cart_items)
     render json: { cart_items: cart_items, cart_total: cart_total }
   end
-
+ 
+    def show
+      cart_items = current_user.cart.cart_items
+      cart_total = calculate_cart_total(cart_items)
+      render json: { cart_items: cart_items, cart_total: cart_total }
+    end
   
-  
-  # Modify calculate_cart_total to accept cart items as a parameter
-  def calculate_cart_total(cart_items)
-    cart_items.sum(&:subtotal)
-  end
-  
-
+    def get_cart
+      cart_id = params[:id]
+      current_cart = Cart.find_by(id: cart_id, user: current_user)
+      
+      unless current_cart
+        render json: { error: "Cart not found" }, status: :not_found
+        return
+      end
+      
+      # Load the associated order separately
+      order = Order.find_by(cart_id: current_cart.id)
+      
+      puts "Current Cart: #{current_cart.inspect}"
+      puts "Associated Order: #{order.inspect}" # Check if the order is loaded
+      
+      cart_data = {
+        id: current_cart.id,
+        user_id: current_cart.user_id,
+        created_at: current_cart.created_at,
+        updated_at: current_cart.updated_at,
+        order_id: current_cart.order_id
+      }
+      
+      order_data = order.present? ? order.attributes : nil
+      
+      order_items_data = nil
+      if order.present?
+        order_items_data = order.order_items.map do |order_item|
+          order_item.attributes.merge(product: order_item.product.attributes)
+        end
+      end
+      
+      render json: {
+        cart: cart_data,
+        order: order_data,
+        order_items: order_items_data
+      }, include: [:order, :'order.order_items', :'order_items.product']
+    end
+    
+    
   def add_quantity
     cart = current_user.cart
     order_item_id = params[:product_id] # Change the parameter name
@@ -163,18 +167,32 @@ end
   end
 
 
-  def remove_item
-    product_id = params[:product_id]
+  # def remove_item
+  #   product_id = params[:product_id]
     
-    # Find the order item for the given product
-    order_item = current_user.cart.order_items.find_by(product_id: product_id)
+  #   # Find the order item for the given product
+  #   order_item = current_user.cart.order_items.find_by(product_id: product_id)
+    
+  #   if order_item
+  #     # If the item is in the cart, destroy it
+  #     order_item.destroy
+  #     render json: { message: 'Product removed from the cart successfully' }
+  #   else
+  #     render json: { error: 'Product not found in the cart' }, status: :not_found
+  #   end
+  # end
+  def remove_item
+    order_item_id = params[:order_item_id]
+    
+    # Find the order item by its ID
+    order_item = current_user.cart.order_items.find_by(id: order_item_id)
     
     if order_item
       # If the item is in the cart, destroy it
       order_item.destroy
-      render json: { message: 'Product removed from the cart successfully' }
+      render json: { message: 'Order item removed from the cart successfully' }
     else
-      render json: { error: 'Product not found in the cart' }, status: :not_found
+      render json: { error: 'Order item not found in the cart' }, status: :not_found
     end
   end
   

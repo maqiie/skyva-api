@@ -14,6 +14,11 @@ Rails.application.routes.draw do
   get '/products/on_offer', to: 'products#on_offer'
   get '/products/recently_added', to: 'products#recently_added'
 
+  
+
+
+get '/cart', to: 'carts#show', as: 'cart'
+
 
 mount ActionCable.server => '/cable'
 
@@ -58,7 +63,7 @@ mount ActionCable.server => '/cable'
   }
   # devise_for :users
 
-  # get '/products/on_offer', to: 'products#on_offer'
+ 
 
   
 

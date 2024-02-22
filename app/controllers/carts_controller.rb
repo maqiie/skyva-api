@@ -118,39 +118,88 @@ end
     end
     
     
-  def add_quantity
-    cart = current_user.cart
-    order_item_id = params[:product_id] # Change the parameter name
+
+    # def add_quantity
+    #   cart = current_user.cart
+    #   order_item_id = params[:order_item_id]
+      
+    #   if cart.nil?
+    #     render json: { errors: 'User does not have a cart' }, status: :not_found
+    #     return
+    #   end
+      
+    #   order_item = cart.order_items.find_by(id: order_item_id)
+      
+    #   if order_item.nil?
+    #     render json: { errors: 'Order item not found in the cart' }, status: :not_found
+    #     return
+    #   end
+      
+    #   unless params.key?(:quantity)
+    #     render json: { errors: 'Quantity parameter missing' }, status: :unprocessable_entity
+    #     return
+    #   end
+      
+    #   new_quantity = params[:quantity].to_i
+      
+    #   if new_quantity <= 0
+    #     # If the updated quantity is zero or negative, remove the order item from the cart
+    #     order_item.destroy
+    #     render json: { message: 'Item removed from cart' }, status: :ok
+    #   else
+    #     # Calculate the updated quantity
+    #     updated_quantity = order_item.quantity + new_quantity
+        
+    #     # Update the order item's quantity
+    #     order_item.update(quantity: updated_quantity)
+    #     render json: { message: 'Quantity updated successfully' }, status: :ok
+    #   end
+    # end
     
-    if cart.nil?
-      render json: { errors: 'User does not have a cart' }, status: :not_found
-      return
+    def add_quantity
+      cart = current_user.cart
+      order_item_id = params[:order_item_id]
+      
+      if cart.nil?
+        render json: { errors: 'User does not have a cart' }, status: :not_found
+        return
+      end
+      
+      order_item = cart.order_items.find_by(id: order_item_id)
+      
+      if order_item.nil?
+        render json: { errors: 'Order item not found in the cart' }, status: :not_found
+        return
+      end
+      
+      unless params.key?(:quantity)
+        render json: { errors: 'Quantity parameter missing' }, status: :unprocessable_entity
+        return
+      end
+      
+      new_quantity = params[:quantity].to_i
+      
+      if new_quantity <= 0
+        # If the updated quantity is zero or negative, remove the order item from the cart
+        order_item.destroy
+        render json: { message: 'Item removed from cart' }, status: :ok
+      else
+        # Calculate the updated quantity
+        updated_quantity = order_item.quantity + new_quantity
+        
+        # If the updated quantity is zero, remove the item from the cart
+        if updated_quantity <= 0
+          order_item.destroy
+          render json: { message: 'Item removed from cart' }, status: :ok
+        else
+          # Update the order item's quantity
+          order_item.update(quantity: updated_quantity)
+          render json: { message: 'Quantity updated successfully' }, status: :ok
+        end
+      end
     end
-  
-    order_item = cart.order_items.find_by(id: order_item_id) # Use the correct parameter name
     
-    if order_item.nil?
-      render json: { errors: 'Order item not found in the cart' }, status: :not_found
-      return
-    end
-  
-    new_quantity = params[:quantity].to_i
-  
-    # Calculate the updated quantity
-    updated_quantity = order_item.quantity + new_quantity
-  
-    if updated_quantity < 0
-      # If the updated quantity is negative, you might want to handle removal logic here
-      order_item.destroy
-    else
-      # Update the order item's quantity
-      order_item.update(quantity: updated_quantity)
-    end
-  
-    render json: { message: 'Quantity updated successfully' }, status: :ok
-  end
-  
-  
+    
   
   def destroy
     cart_item = current_user.cart.cart_items.find(params[:cart_item_id])
@@ -167,34 +216,23 @@ end
   end
 
 
-  # def remove_item
-  #   product_id = params[:product_id]
-    
-  #   # Find the order item for the given product
-  #   order_item = current_user.cart.order_items.find_by(product_id: product_id)
-    
-  #   if order_item
-  #     # If the item is in the cart, destroy it
-  #     order_item.destroy
-  #     render json: { message: 'Product removed from the cart successfully' }
-  #   else
-  #     render json: { error: 'Product not found in the cart' }, status: :not_found
-  #   end
-  # end
+ 
   def remove_item
-    order_item_id = params[:order_item_id]
     
-    # Find the order item by its ID
-    order_item = current_user.cart.order_items.find_by(id: order_item_id)
+    order_item_id = params[:order_item_id]
+order_item = current_user.cart.order_items.find_by(id: order_item_id)
+
+  
     
     if order_item
       # If the item is in the cart, destroy it
       order_item.destroy
-      render json: { message: 'Order item removed from the cart successfully' }
+      render json: { message: 'Product removed from the cart successfully' }
     else
-      render json: { error: 'Order item not found in the cart' }, status: :not_found
+      render json: { error: 'Product not found in the cart' }, status: :not_found
     end
   end
+  
   
   
 

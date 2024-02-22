@@ -13,6 +13,8 @@ gem 'redis'
 gem 'cable_ready'
 # Gemfile
 gem 'actioncable'
+# gem 'portal_sdk'
+	
 
 
 

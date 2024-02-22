@@ -3,10 +3,25 @@ class OrdersController < ApplicationController
 
   before_action :authenticate_user!
 
-  def index
+  def open_orders
+    @open_orders = current_user.orders.where(status: 'open')
+    render json: @open_orders
   end
-  
-  def update
+
+  # Custom action to get history of orders
+  def order_history
+    @order_history = current_user.orders.where.not(status: 'open')
+    render json: @order_history
+  end
+
+  private
+
+  def set_order
+    @order = current_user.orders.find(params[:id])
+  end
+
+  def order_params
+    params.require(:order).permit(:product_id, :quantity)
   end
 
   def destroy

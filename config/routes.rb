@@ -80,8 +80,12 @@ Rails.application.routes.draw do
   namespace :auth do
     devise_scope :user do
       get 'registrations/show', to: 'registrations#show'
+      resources :registrations, only: [:index] # Route for fetching all users
+      get 'users', to: 'registrations#index'
+
     end
   end
+  
   mount_devise_token_auth_for 'User', at: 'auth', controllers: {
     registrations: 'auth/registrations'
   }
@@ -121,8 +125,17 @@ Rails.application.routes.draw do
   end
 
   # Order Items and Orders routes
+  get '/orders/total_revenue', to: 'orders#total_revenue'
+
   resources :order_items, only: [:create, :destroy]
   resources :orders, except: [:edit]
+  resources :orders, only: [:index] # Route for fetching all orders
+  get '/order_history', to: 'orders#order_history'
+  put '/orders/:id/close', to: 'orders#close', as: 'close_order'
+
+
+
+
 
   # Current user route
   get '/current_user', to: 'application#index', as: 'current_user'

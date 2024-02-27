@@ -14,14 +14,28 @@ class OrderItemsController < ApplicationController
     @order_item = @order.order_items.build
   end
 
+  # def create
+  #   @order_item = @order.order_items.build(order_item_params)
+  #   if @order_item.save
+  #     redirect_to order_order_items_path(@order), notice: 'Order item was successfully created.'
+  #   else
+  #     render :new
+  #   end
+  # end
   def create
-    @order_item = @order.order_items.build(order_item_params)
-    if @order_item.save
-      redirect_to order_order_items_path(@order), notice: 'Order item was successfully created.'
+    product = Product.find_by(name: order_item_params[:product_name]) # Assuming product_name is the name of the product being added to the order item
+    if product
+      @order_item = @order.order_items.build(order_item_params.merge(price: product.price))
+      if @order_item.save
+        redirect_to order_order_items_path(@order), notice: 'Order item was successfully created.'
+      else
+        render :new
+      end
     else
-      render :new
+      redirect_to new_order_order_item_path(@order), alert: 'Product not found.' # Handle the case where the product is not found
     end
   end
+  
 
   def edit
   end

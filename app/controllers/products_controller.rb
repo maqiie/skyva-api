@@ -1,8 +1,15 @@
 # app/controllers/products_controller.rb
 
 class ProductsController < ApplicationController
-  before_action :require_admin, only: [:create, :destroy]
+  before_action :require_admin, only: [:create]
 
+
+   # GET /products
+   def index
+    @products = Product.all
+    render json: @products
+  end
+  
 
   
   def create

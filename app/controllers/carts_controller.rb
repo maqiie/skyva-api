@@ -37,26 +37,50 @@ def add_to_cart
     order = current_user.orders.create(cart: current_cart, status: 'open')
   end
 
-  # Step 5: Find or initialize the order item for the product
-  order_item = order.order_items.find_or_initialize_by(product: product)
-  order_item.quantity ||= 0
-  order_item.quantity += quantity
-  order_item.cart = current_cart # Associate order item with the cart
+  # # Step 5: Find or initialize the order item for the product
+  # order_item = order.order_items.find_or_initialize_by(product: product)
+  # order_item.quantity ||= 0
+  # order_item.quantity += quantity
+  # order_item.cart = current_cart # Associate order item with the cart
 
-  # Step 6: Handle database operations in a transaction
-  ActiveRecord::Base.transaction do
-    begin
-      order.save!
-      order_item.save!
-      current_user.save!
-      current_cart.save!
-    rescue ActiveRecord::RecordInvalid => e
-      # Rollback transaction if any operation fails
-      logger.error "Error adding product to cart: #{e.message}"
-      raise ActiveRecord::Rollback
-      return render json: { error: "There was an error adding the product to the cart", errors: e.record.errors.full_messages }, status: :unprocessable_entity
-    end
+  # # Step 6: Handle database operations in a transaction
+  # ActiveRecord::Base.transaction do
+  #   begin
+  #     order.save!
+  #     order_item.save!
+  #     current_user.save!
+  #     current_cart.save!
+  #   rescue ActiveRecord::RecordInvalid => e
+  #     # Rollback transaction if any operation fails
+  #     logger.error "Error adding product to cart: #{e.message}"
+  #     raise ActiveRecord::Rollback
+  #     return render json: { error: "There was an error adding the product to the cart", errors: e.record.errors.full_messages }, status: :unprocessable_entity
+  #   end
+  # end
+  # Step 5: Find or initialize the order item for the product
+order_item = order.order_items.find_or_initialize_by(product: product)
+order_item.quantity ||= 0
+order_item.quantity += quantity
+order_item.cart = current_cart # Associate order item with the cart
+
+# Set the price for the order item based on the product
+order_item.price = product.price
+
+# Step 6: Handle database operations in a transaction
+ActiveRecord::Base.transaction do
+  begin
+    order.save!
+    order_item.save!
+    current_user.save!
+    current_cart.save!
+  rescue ActiveRecord::RecordInvalid => e
+    # Rollback transaction if any operation fails
+    logger.error "Error adding product to cart: #{e.message}"
+    raise ActiveRecord::Rollback
+    return render json: { error: "There was an error adding the product to the cart", errors: e.record.errors.full_messages }, status: :unprocessable_entity
   end
+end
+
 
   # Step 7: Render success response
   render json: { message: "Product added to cart successfully", cart_id: current_cart.id, order_item_id: order_item.id }

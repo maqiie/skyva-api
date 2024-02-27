@@ -1,19 +1,55 @@
 class OrdersController < ApplicationController
-
-
   before_action :authenticate_user!
+
+
+
+  def index
+    # Retrieve all orders
+    @orders = Order.includes(:order_items).all
+
+    # Filter out orders without order items
+    @orders.each do |order|
+      order.update(status: 'closed') if order.order_items.empty?
+    end
+
+    # Render JSON response
+    render json: @orders, include: :order_items
+  end
+
+
+  
 
   def open_orders
     @open_orders = current_user.orders.where(status: 'open')
     render json: @open_orders
   end
-
-  # Custom action to get history of orders
-  def order_history
-    @order_history = current_user.orders.where.not(status: 'open')
-    render json: @order_history
+  def close
+    order = Order.find(params[:id])
+    order.update(status: 'closed')
+    # You can add any other logic here, such as sending notifications, updating inventory, etc.
+    head :no_content
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: 'Order not found' }, status: :not_found
   end
+# Custom action to get history of closed orders
+def order_history
+  @closed_orders = current_user.orders.where(status: 'closed')
+  total_revenue = @closed_orders.sum(:total_amount)
+  render json: { orders: @closed_orders, total_revenue: total_revenue }
+end
+# def total_revenue
+#   # Retrieve closed orders
+#   closed_orders = current_user.orders.where(status: 'closed')
 
+#   # Calculate total revenue
+#   total_revenue = closed_orders.sum(:total_amount)
+
+#   render json: { total_revenue: total_revenue }
+# end
+def total_revenue
+  total_revenue = Order.where(status: 'closed').sum(:total_amount)
+  render json: { total_revenue: total_revenue }
+end
   private
 
   def set_order

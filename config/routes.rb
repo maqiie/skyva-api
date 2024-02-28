@@ -130,7 +130,7 @@ Rails.application.routes.draw do
   resources :order_items, only: [:create, :destroy]
   resources :orders, except: [:edit]
   resources :orders, only: [:index] # Route for fetching all orders
-  get '/order_history', to: 'orders#order_history'
+  get ' /order_history', to: 'orders#order_history'
   put '/orders/:id/close', to: 'orders#close', as: 'close_order'
 
 

@@ -17,7 +17,11 @@ class OrdersController < ApplicationController
   end
 
 
-  
+  def order_history
+    @closed_orders = current_user.orders.where(status: 'closed')
+    total_revenue = @closed_orders.sum(:total_amount)
+    render json: { orders: @closed_orders, total_revenue: total_revenue }
+  end
 
   def open_orders
     @open_orders = current_user.orders.where(status: 'open')
@@ -31,21 +35,8 @@ class OrdersController < ApplicationController
   rescue ActiveRecord::RecordNotFound
     render json: { error: 'Order not found' }, status: :not_found
   end
-# Custom action to get history of closed orders
-def order_history
-  @closed_orders = current_user.orders.where(status: 'closed')
-  total_revenue = @closed_orders.sum(:total_amount)
-  render json: { orders: @closed_orders, total_revenue: total_revenue }
-end
-# def total_revenue
-#   # Retrieve closed orders
-#   closed_orders = current_user.orders.where(status: 'closed')
 
-#   # Calculate total revenue
-#   total_revenue = closed_orders.sum(:total_amount)
 
-#   render json: { total_revenue: total_revenue }
-# end
 def total_revenue
   total_revenue = Order.where(status: 'closed').sum(:total_amount)
   render json: { total_revenue: total_revenue }

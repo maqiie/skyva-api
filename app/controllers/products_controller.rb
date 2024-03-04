@@ -2,7 +2,11 @@
 
 class ProductsController < ApplicationController
   before_action :require_admin, only: [:create]
-
+  def index
+    @products = Product.all
+    render json: @products.map { |product| product_with_image_url(product) }
+  end
+  
  
   def destroy
     @product = Product.find(params[:id])
@@ -15,7 +19,18 @@ class ProductsController < ApplicationController
   end
 
 
+  # def index_by_category
+  #   @category = Category.find(params[:category_id])
+  #   @products = @category.products
+  #   render json: @products
+  # end
 
+  def index_by_category
+    @category = Category.find(params[:category_id])
+    @products = @category.products.with_attached_image
+    render json: @products.map { |product| product_with_image_url(product) }
+  end
+  
 
   def index
     @products = Product.all

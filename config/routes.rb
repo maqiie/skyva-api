@@ -85,6 +85,11 @@ Rails.application.routes.draw do
 
     end
   end
+  # categories
+  
+  get '/categories', to: 'categories#index'
+  get '/categories/:category_id/products', to: 'products#index_by_category'
+
   
   mount_devise_token_auth_for 'User', at: 'auth', controllers: {
     registrations: 'auth/registrations'

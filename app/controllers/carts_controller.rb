@@ -14,7 +14,45 @@ class CartsController < ApplicationController
   end
    
 
-
+  def get_cart
+    cart_id = params[:id]
+    current_cart = Cart.find_by(id: cart_id, user: current_user)
+    
+    unless current_cart
+      render json: { error: "Cart not found" }, status: :not_found
+      return
+    end
+    
+    # Load the associated order separately
+    order = Order.find_by(cart_id: current_cart.id)
+    
+    puts "Current Cart: #{current_cart.inspect}"
+    puts "Associated Order: #{order.inspect}" # Check if the order is loaded
+    
+    cart_data = {
+      id: current_cart.id,
+      user_id: current_cart.user_id,
+      created_at: current_cart.created_at,
+      updated_at: current_cart.updated_at,
+      order_id: current_cart.order_id
+    }
+    
+    order_data = order.present? ? order.attributes : nil
+    
+    order_items_data = nil
+    if order.present?
+      order_items_data = order.order_items.map do |order_item|
+        order_item.attributes.merge(product: order_item.product.attributes)
+      end
+    end
+    
+    render json: {
+      cart: cart_data,
+      order: order_data,
+      order_items: order_items_data
+    }, include: [:order, :'order.order_items', :'order_items.product']
+  end
+  
 
 def add_to_cart
   product_id = params[:product_id]

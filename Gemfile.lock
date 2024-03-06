@@ -97,6 +97,9 @@ GEM
       i18n (>= 1.8.11, < 2)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    httparty (0.21.0)
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     io-console (0.6.0)
@@ -117,6 +120,7 @@ GEM
     mini_magick (4.12.0)
     mini_mime (1.1.5)
     minitest (5.19.0)
+    multi_xml (0.6.0)
     net-imap (0.3.7)
       date
       net-protocol
@@ -208,6 +212,7 @@ DEPENDENCIES
   devise
   devise_token_auth
   faker
+  httparty
   jsonapi-serializer
   mini_magick
   pg

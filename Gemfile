@@ -11,9 +11,10 @@ gem 'pg'
 gem 'faker'
 gem 'redis'
 gem 'cable_ready'
-# Gemfile
 gem 'actioncable'
 gem 'mini_magick'
+gem 'httparty'
+
 
 	
 

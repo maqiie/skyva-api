@@ -75,6 +75,8 @@ Rails.application.routes.draw do
   # Receipts and Addresses routes
   resources :receipts, only: [:create]
   resources :addresses, except: [:edit]
+  resources :favorites, only: [:index, :create, :destroy]
+
 
   # Authentication routes using Devise Token Auth
   namespace :auth do
@@ -143,6 +145,8 @@ Rails.application.routes.draw do
 
 
   # Current user route
+  post '/create-checkout-session', to: 'charges#create_checkout_session'
+
   get '/current_user', to: 'application#index', as: 'current_user'
 
   # Mount ActionCable

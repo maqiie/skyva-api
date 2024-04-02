@@ -181,42 +181,8 @@ end
     
     
 
-    # def add_quantity
-    #   cart = current_user.cart
-    #   order_item_id = params[:order_item_id]
-      
-    #   if cart.nil?
-    #     render json: { errors: 'User does not have a cart' }, status: :not_found
-    #     return
-    #   end
-      
-    #   order_item = cart.order_items.find_by(id: order_item_id)
-      
-    #   if order_item.nil?
-    #     render json: { errors: 'Order item not found in the cart' }, status: :not_found
-    #     return
-    #   end
-      
-    #   unless params.key?(:quantity)
-    #     render json: { errors: 'Quantity parameter missing' }, status: :unprocessable_entity
-    #     return
-    #   end
-      
-    #   new_quantity = params[:quantity].to_i
-      
-    #   if new_quantity <= 0
-    #     # If the updated quantity is zero or negative, remove the order item from the cart
-    #     order_item.destroy
-    #     render json: { message: 'Item removed from cart' }, status: :ok
-    #   else
-    #     # Calculate the updated quantity
-    #     updated_quantity = order_item.quantity + new_quantity
-        
-    #     # Update the order item's quantity
-    #     order_item.update(quantity: updated_quantity)
-    #     render json: { message: 'Quantity updated successfully' }, status: :ok
-    #   end
-    # end
+   
+   
     
     def add_quantity
       cart = current_user.cart
@@ -293,6 +259,9 @@ order_item = current_user.cart.order_items.find_by(id: order_item_id)
     else
       render json: { error: 'Product not found in the cart' }, status: :not_found
     end
+  end
+  def calculate_cart_total(cart_items)
+    cart_items.reduce(0) { |total, item| total + item.quantity * item.product.price }
   end
   
   

@@ -264,7 +264,18 @@ order_item = current_user.cart.order_items.find_by(id: order_item_id)
     cart_items.reduce(0) { |total, item| total + item.quantity * item.product.price }
   end
   
-  
+  def clear_cart
+    # Find the current user's cart
+    cart = current_user.cart
+    
+    if cart
+      # If the cart exists, destroy all its items
+      cart.cart_items.destroy_all
+      render json: { message: 'Cart cleared successfully' }
+    else
+      render json: { error: 'Cart not found' }, status: :not_found
+    end
+  end
   
 
 

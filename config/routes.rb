@@ -128,6 +128,7 @@ Rails.application.routes.draw do
       # delete 'remove_item/:id', to: 'carts#remove_item', as: :remove_item
       delete 'clear_cart', to: 'carts#clear_cart', as: :clear_cart
       get 'get_cart'
+      
     end
   end
 

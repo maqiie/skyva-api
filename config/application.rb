@@ -98,7 +98,7 @@ config.action_cable.mount_path = '/cable'
     # end
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'https://skyva-front.vercel.app', 'https://skyva-admin.vercel.app'
+        origins 'https://skyva-front.vercel.app', 'https://skyva-admin.vercel.app', 'http://localhost:3000/'
         resource '*',
                  :headers => :any,
                  :expose => ['access-token', 'expiry', 'token-type', 'uid', 'client'],

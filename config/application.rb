@@ -96,13 +96,22 @@ config.action_cable.mount_path = '/cable'
     #              :methods => [:get, :post, :options, :delete, :put, :patch]
     #   end
     # end
-    Rails.application.config.middleware.insert_before 0, Rack::Cors do
+    # Rails.application.config.middleware.insert_before 0, Rack::Cors do
+    #   allow do
+    #     origins 'https://skyva-front.vercel.app', 'https://skyva-admin.vercel.app', 'http://localhost:3000'
+    
+    #     resource '*', 
+    #       headers: :any,
+    #       methods: [:get, :post, :put, :patch, :delete, :options]
+    #   end
+    # end
+    config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins 'https://skyva-front.vercel.app', 'https://skyva-admin.vercel.app', 'http://localhost:3000'
-    
-        resource '*', 
+        resource '*',
           headers: :any,
-          methods: [:get, :post, :put, :patch, :delete, :options]
+          expose: ['access-token', 'expiry', 'token-type', 'uid', 'client'],
+          methods: [:get, :post, :options, :delete, :put]
       end
     end
     

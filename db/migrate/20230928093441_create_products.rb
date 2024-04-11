@@ -15,6 +15,6 @@ class CreateProducts < ActiveRecord::Migration[7.0]
 
     end
 
-    depends_on :categories
+
   end
 end

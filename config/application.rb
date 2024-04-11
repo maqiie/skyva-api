@@ -206,39 +206,26 @@ module DeviseTokenAuthTwitter
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
-    # config.middleware.use ActionDispatch::Session::CookieStore
+
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
-
-    config.generators.system_tests = nil
-    # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    # ここからコピペする
+    # Session configuration
     config.session_store :cookie_store, key: '_interslice_session'
     config.middleware.use ActionDispatch::Cookies # Required for all session management
     config.middleware.use ActionDispatch::Session::CookieStore, config.session_options
     config.middleware.use ActionDispatch::Flash
 
-
-    # config.middleware.insert_before 0, Rack::Cors do
-    #   allow do
-    #     origins '*'
-    #     resource '*',
-    #              :headers => :any,
-    #              :expose => ['access-token', 'expiry', 'token-type', 'uid', 'client'],
-    #              :methods => [:get, :post, :options, :delete, :put]
-    #   end
-    # end
+    # CORS configuration
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'https://skyva-front.vercel.app','https://skyva-admin.vercel.app'
+        origins 'https://skyva-front.vercel.app', 'https://skyva-admin.vercel.app'
+        resource '*',
           headers: :any,
           expose: ['access-token', 'expiry', 'token-type', 'uid', 'client'],
           methods: [:get, :post, :options, :delete, :put]
       end
     end
-    
-    # ここまで
   end
 end

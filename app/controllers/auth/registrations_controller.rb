@@ -3,11 +3,6 @@
 class Auth::RegistrationsController < DeviseTokenAuth::RegistrationsController
 
 
-  # def index
-  #   @users = User.all
-  #   render json: @users
-  # end
-
   def index
     @users = User.includes(:orders)
     render json: @users.to_json(include: :orders)

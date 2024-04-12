@@ -220,7 +220,7 @@ module DeviseTokenAuthTwitter
     # CORS configuration
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'https://skyva-front.vercel.app', 'https://skyva-admin.vercel.app/'
+        origins 'https://skyva-front.vercel.app', 'https://skyva-admin-5beh.vercel.app'
         resource '*',
           headers: :any,
           expose: ['access-token', 'expiry', 'token-type', 'uid', 'client'],

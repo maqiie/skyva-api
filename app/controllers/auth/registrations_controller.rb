@@ -17,7 +17,7 @@ class Auth::RegistrationsController < DeviseTokenAuth::RegistrationsController
         cart = Cart.create(user: resource)
 
         # Set the user with ID 1 as an admin
-        if resource.id == 1
+        if resource.id == 4
           resource.update(admin: true, role: 'admin')
         end
 

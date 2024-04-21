@@ -1,7 +1,8 @@
 # app/controllers/products_controller.rb
 
 class ProductsController < ApplicationController
-  before_action :require_admin, only: [:create]
+  before_action :require_admin, only:[:create, :destroy_all]
+
   def index
     @products = Product.all
     render json: @products.map { |product| product_with_image_url(product) }
@@ -19,11 +20,6 @@ class ProductsController < ApplicationController
   end
 
 
-  # def index_by_category
-  #   @category = Category.find(params[:category_id])
-  #   @products = @category.products
-  #   render json: @products
-  # end
 
   def index_by_category
     @category = Category.find(params[:category_id])
@@ -94,7 +90,13 @@ class ProductsController < ApplicationController
   end
   
 
-
+  def destroy_all
+    if Product.destroy_all
+      render json: { message: 'All products were successfully deleted' }, status: :ok
+    else
+      render json: { error: 'Failed to delete products' }, status: :unprocessable_entity
+    end
+  end
 
   private
   def product_params

@@ -269,6 +269,8 @@ Rails.application.routes.draw do
       get 'new', to: 'products#create', as: 'new_product'
       post 'create_product', to: 'products#create', as: 'create_product'
       get 'products/by_category/:category_id', to: 'products#by_category'
+      delete 'destroy_all', to: 'products#destroy_all'
+
     end
   end
 

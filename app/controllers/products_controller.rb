@@ -67,7 +67,21 @@ class ProductsController < ApplicationController
     end
   end
   
-  
+  def destroy_all
+    begin
+      Product.transaction do
+        # Delete associated records first
+        AssociatedModel.destroy_all
+        
+        # Then delete all products
+        Product.destroy_all
+      end
+
+      render json: { message: 'All products were successfully deleted' }, status: :ok
+    rescue StandardError => e
+      render json: { error: "Failed to delete products: #{e.message}" }, status: :unprocessable_entity
+    end
+  end
 
   def on_offer
     @products = Product.on_offer.with_attached_image
@@ -90,22 +104,7 @@ class ProductsController < ApplicationController
   end
   
 
-  def destroy_all
-    begin
-      Product.transaction do
-        # Delete associated records first
-        AssociatedModel.destroy_all
-        
-        # Then delete all products
-        Product.destroy_all
-      end
-
-      render json: { message: 'All products were successfully deleted' }, status: :ok
-    rescue StandardError => e
-      render json: { error: "Failed to delete products: #{e.message}" }, status: :unprocessable_entity
-    end
-  end
-
+  
 
   private
   def product_params

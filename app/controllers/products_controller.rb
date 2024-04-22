@@ -91,10 +91,18 @@ class ProductsController < ApplicationController
   
 
   def destroy_all
-    if Product.destroy_all
+    begin
+      Product.transaction do
+        # Delete associated records first
+        AssociatedModel.destroy_all
+        
+        # Then delete all products
+        Product.destroy_all
+      end
+
       render json: { message: 'All products were successfully deleted' }, status: :ok
-    else
-      render json: { error: 'Failed to delete products' }, status: :unprocessable_entity
+    rescue StandardError => e
+      render json: { error: "Failed to delete products: #{e.message}" }, status: :unprocessable_entity
     end
   end
 
